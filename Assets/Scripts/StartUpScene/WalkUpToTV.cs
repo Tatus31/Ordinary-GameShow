@@ -8,7 +8,7 @@ public class WalkUpToTV : MonoBehaviour
     public static Action OnCamerasComplete;
     
     [Serializable]
-    public class CameraSettings
+    private class CameraSettings
     {
         public CinemachineCamera Camera;
         public float WaitTime = 1f;
