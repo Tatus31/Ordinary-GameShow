@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   baseDelay: 2
+  timeBeforeFall: 1
+  fallAcceleration: 9.8
 --- !u!58 &396432806240009037
 CircleCollider2D:
   m_ObjectHideFlags: 0
