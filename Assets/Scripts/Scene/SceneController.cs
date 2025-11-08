@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {   
-    public static SceneController Instance;
+    [SerializeField] private GameObject curtainObj;
+    [SerializeField] private Animator  animator;
+    [SerializeField] private float transitionDuration = 1f;
     
+    public static SceneController Instance;
+
     private AsyncOperation _loadSceneOperation;
 
     public void Awake()
@@ -14,6 +18,7 @@ public class SceneController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -37,7 +42,7 @@ public class SceneController : MonoBehaviour
         StartCoroutine(PrewarmSceneCoroutine(sceneName));
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene()
     {
         if (_loadSceneOperation == null)
         {
@@ -50,11 +55,29 @@ public class SceneController : MonoBehaviour
         _loadSceneOperation.allowSceneActivation  = true; 
     }
 
-    public void LoadWinningScene(string sceneName)
+    public void LoadSceneWithTransition()
     {
-        
+        curtainObj.SetActive(true);
+        StartCoroutine(LoadSceneWithTransitionCoroutine());
     }
 
+    private IEnumerator LoadSceneWithTransitionCoroutine()
+    {
+        animator.SetBool("StartTransition", true);
+
+        yield return new WaitForSeconds(transitionDuration);
+        
+        _loadSceneOperation.allowSceneActivation  = true; 
+        
+        yield return _loadSceneOperation;
+        
+        animator.SetBool("StartTransition", false);
+        
+        yield return new WaitForSeconds(transitionDuration);
+        
+        curtainObj.SetActive(false);
+    }
+    
     private IEnumerator PrewarmSceneCoroutine(string sceneName)
     {
         _loadSceneOperation = SceneManager.LoadSceneAsync(sceneName);
