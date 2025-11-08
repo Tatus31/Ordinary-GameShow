@@ -89,7 +89,7 @@ public class EggSpawner : MonoBehaviour
 
                 foreach (var egg in eggPrefabs)
                 {
-                    egg.GetComponent<Egg>().IncreaseEggSpeed();
+                    Egg.IncreaseGlobalEggSpeed();
                 }
 
                 _eggPoints = 0;

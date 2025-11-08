@@ -22,14 +22,18 @@ public class Egg : MonoBehaviour
     private bool _isFalling;
 
     private Coroutine _moveRoutine;
+    
+    private static float _globalSpeedBonus = 0f;
+    private static float _globalDelayReduction = 0f;
+    private static float _globalFallTimeReduction = 0f;
 
     public void Init(Vector3 dir)
     {
         _direction = dir.normalized;
 
-        _currentSpeed = baseSpeed;
-        _currentDelay = baseDelay;
-        _currentTimeBeforeFall = timeBeforeFall;
+        _currentSpeed = baseSpeed + _globalSpeedBonus;
+        _currentDelay = Mathf.Max(0, baseDelay - _globalDelayReduction);
+        _currentTimeBeforeFall = Mathf.Max(0, timeBeforeFall - _globalFallTimeReduction);
         
         _fallSpeed = 0f;
         _isFalling = false;
@@ -40,11 +44,11 @@ public class Egg : MonoBehaviour
         _moveRoutine = StartCoroutine(MoveEggAfterDelay());
     }
 
-    public void IncreaseEggSpeed(float speedIncrease = 0.5f, float delayDecrease = 0.1f, float fallTimeDecrease = 0.2f)
+    public static void IncreaseGlobalEggSpeed(float speedIncrease = 0.3f, float delayDecrease = 0.1f, float fallTimeDecrease = 0.3f)
     {
-        _currentSpeed += speedIncrease;
-        _currentDelay = Mathf.Max(0, _currentDelay - delayDecrease);
-        _currentTimeBeforeFall = Mathf.Max(0, _currentTimeBeforeFall - fallTimeDecrease);
+        _globalSpeedBonus += speedIncrease;
+        _globalDelayReduction += delayDecrease;
+        _globalFallTimeReduction += fallTimeDecrease;
     }
 
     private IEnumerator MoveEggAfterDelay()
@@ -70,7 +74,7 @@ public class Egg : MonoBehaviour
 
     private IEnumerator StartFallingAfterTime()
     {
-        yield return new WaitForSeconds(timeBeforeFall);
+        yield return new WaitForSeconds(_currentTimeBeforeFall);
         _isFalling = true;
     }
 }
