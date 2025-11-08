@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue
+  m_Name: EntryDialogue 2Branch D
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is an example text for the guy pt1
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: DUCK DUCK DUCK
+    BranchKey: duc
+    IsExpectedToBranch: 1

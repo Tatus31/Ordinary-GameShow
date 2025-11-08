@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class TypeWriter : MonoBehaviour
 {
     [SerializeField] private float typingSpeed = 0.05f;
-    [SerializeField]private TextMeshPro typingText;
+    [SerializeField]private TextMeshProUGUI typingText;
     
     private bool _isTyping;
     private string _text;
@@ -27,7 +27,7 @@ public class TypeWriter : MonoBehaviour
     private void Awake()
     {
         if(!typingText)
-            typingText  = GetComponent<TextMeshPro>();
+            typingText  = GetComponent<TextMeshProUGUI>();
     }
 
     public void StartTyping(string text, Action onComplete = null)
@@ -41,13 +41,15 @@ public class TypeWriter : MonoBehaviour
         _typingCoroutine = StartCoroutine(TypingCoroutine(onComplete));
     }
 
-    public void SkipTyping()
+    public void SkipTyping(Action onComplete)
     {
         if (_isTyping)
         {
             StopCoroutine(_typingCoroutine);
             typingText.text = _text;
             _isTyping = false;
+            
+            onComplete?.Invoke();
         }
     }
 

@@ -22,17 +22,23 @@ public class WalkUpToTV : MonoBehaviour
     {
         if (cameras.Length == 0)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("WalkUpToTV: cameras is null");
+#endif
         }
 
         if (!blenderSettings)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("WalkUpToTV: blenderSettings is null");
+#endif
         }
         
         if (!cinemachineBrain)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("`WalkUpToTV`: cinemachineBrain is null");
+#endif
         }
 
         foreach (var camera in cameras)

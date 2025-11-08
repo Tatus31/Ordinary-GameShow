@@ -11,19 +11,31 @@ public class DialogueManager : MonoBehaviour
     [Serializable]
     private class DialogueBox
     {
-        public DialogueBoxSO Dialogue;
+        public DialogueBoxSO[] Dialogues;
         public CinemachineCamera Camera;
+        public bool isForcedToNextDialogue;
+        // public bool isForcedToStart;
+        [Range(0, 60)]
+        public float timeToNextDialogue;
+        [Space(5)]
         public UnityEvent OnDialogueComplete;
     }
     
     [SerializeField] private DialogueBox[] dialogueBoxes;
     [Space(10f)]
-    [SerializeField] private TextMeshPro dialogueBoxText;
+    [SerializeField] private TextMeshProUGUI dialogueBoxText;
 
     [SerializeField] private TypeWriter typeWriter;
     [SerializeField] private CinemachineBrain cinemachineBrain;
 
     private int _currentDialogueIndex = -1;
+    private bool _isDialogueChanging = false;
+    
+    private DialogueBox _currentDialogueBox;
+    
+    private Coroutine _forceNextDialogueRoutine;
+
+    public bool IsCameraBlending => cinemachineBrain && cinemachineBrain.IsBlending;
     
     private void Awake()
     {
@@ -39,37 +51,68 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueBoxText)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("Dialogue Box Text is null");
+#endif
         }
 
         if (!typeWriter)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("Dialogue Box TypeWriter is null");
+#endif
         }
 
         if (!cinemachineBrain)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("Cinemachine Brain is null");
+#endif
         }
     }
 
     private void Update()
     {
+        if(NameSelection.IsTypingName)
+            return;
+        
         if (Input.GetButtonDown("Fire1"))
         {
             if (typeWriter.IsTyping)
             {
-                typeWriter.SkipTyping();
+                typeWriter.SkipTyping(() =>
+                {
+                    _currentDialogueBox?.OnDialogueComplete?.Invoke();
+                    _forceNextDialogueRoutine = StartCoroutine(ForceNextDialogue());
+                });
             }
             else
             {
-                StartDialogue();
+                StartNextDialogue();
             }
         }
     }
 
-    private void StartDialogue()
+    public void StartNextDialogue()
     {
+        if(_isDialogueChanging)
+            return;
+        
+        StartCoroutine(StartNextDialogueRoutine());
+    }
+
+    public void PreviousDialogue()
+    {
+        if(_isDialogueChanging)
+            return;
+        
+        StartCoroutine(PreviousDialogueRoutine());
+    }
+
+    private IEnumerator StartNextDialogueRoutine()
+    {
+        _isDialogueChanging = true;
+        
         if (_currentDialogueIndex >= 0 && _currentDialogueIndex < dialogueBoxes.Length)
         {
             dialogueBoxes[_currentDialogueIndex].Camera.Priority = 0;
@@ -80,16 +123,72 @@ public class DialogueManager : MonoBehaviour
         if (_currentDialogueIndex >= dialogueBoxes.Length)
         {
             dialogueBoxText.text = "Finished all dialogue";
-            return;
+            _isDialogueChanging = false;
+            yield break;
         }
         
-        DialogueBox currentDialogueBox = dialogueBoxes[_currentDialogueIndex];
-        currentDialogueBox.Camera.Priority = 10;
+        _currentDialogueBox = dialogueBoxes[_currentDialogueIndex];
+        _currentDialogueBox.Camera.Priority = 10;
+        
+        ForceDialogueRoutine();
 
-        StartCoroutine(StartTypingAfterBlend(currentDialogueBox));
+        yield return null;
+        
+        _isDialogueChanging = false;
     }
 
-    
+    private IEnumerator PreviousDialogueRoutine()
+    {
+        _isDialogueChanging = true;
+        
+        if (_forceNextDialogueRoutine != null)
+        {
+            StopCoroutine(_forceNextDialogueRoutine);
+            _forceNextDialogueRoutine = null;
+        }
+
+        if (_currentDialogueIndex >= 0 && _currentDialogueIndex < dialogueBoxes.Length)
+        {
+            dialogueBoxes[_currentDialogueIndex].Camera.Priority = 0;
+        }
+        
+        _currentDialogueIndex--;
+
+        if (_currentDialogueIndex < 0)
+        {
+            _currentDialogueIndex = 0;
+#if UNITY_EDITOR
+            Debug.LogWarning("Dialogue Box Index already at first dialogue");
+#endif
+        }
+        
+        _currentDialogueBox = dialogueBoxes[_currentDialogueIndex];
+        _currentDialogueBox.Camera.Priority = 10;
+                
+        ForceDialogueRoutine();
+        
+        yield return null;
+        
+        _isDialogueChanging = false;
+    }
+
+    private void ForceDialogueRoutine()
+    {
+        StartCoroutine(StartTypingAfterBlend(_currentDialogueBox));
+    }
+
+    private IEnumerator ForceNextDialogue()
+    {
+        if(_forceNextDialogueRoutine != null)
+            StopCoroutine(_forceNextDialogueRoutine);
+        
+        if (_currentDialogueBox != null && _currentDialogueBox.isForcedToNextDialogue)
+        {
+            yield return new WaitForSeconds(_currentDialogueBox.timeToNextDialogue);
+            StartNextDialogue();
+        }
+    }
+        
     //TODO: Find a fix for blending fucking up the rendering of the text 
     private IEnumerator StartTypingAfterBlend(DialogueBox dialogueBox)
     {
@@ -99,15 +198,49 @@ public class DialogueManager : MonoBehaviour
             {
                 yield return null; 
             }
-            
-            yield return new WaitForEndOfFrame();
-
-            typeWriter.StartTyping(dialogueBox.Dialogue.dialogueText, () =>
-            {
-                dialogueBox.OnDialogueComplete?.Invoke();
-                Debug.Log(dialogueBox.Dialogue.dialogueText);
-            });
         }
 
+        var dialogueBranch = GetBranchDialogue(dialogueBox.Dialogues);
+
+        if (dialogueBranch == null)
+        {
+            Debug.LogWarning("Dialogue Box doesn't have a Dialogue Branch");
+            yield break;
+        }
+        
+        typeWriter.StartTyping(dialogueBranch.DialogueText, () =>
+        {
+            dialogueBox.OnDialogueComplete?.Invoke();
+            
+            if (dialogueBox.isForcedToNextDialogue)
+                _forceNextDialogueRoutine = StartCoroutine(ForceNextDialogue());
+        });
+    }
+
+    private BranchingDialogue GetBranchDialogue(DialogueBoxSO[] dialogues)
+    {
+        BranchingDialogue fallbackDialogue = null;
+        
+        foreach (var dialogue in dialogues)
+        {
+            foreach (var branch in dialogue.dialogueBoxes)
+            {
+                if (string.IsNullOrEmpty(branch.BranchKey))
+                {
+                    if (fallbackDialogue == null)
+                    {
+                        fallbackDialogue = branch;
+                        continue;
+                    }
+                }
+                
+                bool currentBranchValue = DialogueBranchManager.Instance.GetBranch(branch.BranchKey);
+                
+                if (currentBranchValue == branch.IsExpectedToBranch)
+                    return branch;
+            }
+        }
+        
+        return fallbackDialogue;
     }
 }
