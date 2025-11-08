@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameShowScene.unity
     guid: 2501fea7a851a994c8098eae4a07c8d7
+  - enabled: 1
+    path: Assets/Scenes/EggMinigameScene.unity
+    guid: 6151002aa5d45f44b8249742415e6f06
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

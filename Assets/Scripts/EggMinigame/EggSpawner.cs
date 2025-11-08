@@ -1,0 +1,153 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+public class EggSpawner : MonoBehaviour
+{
+    public static EggSpawner Instance;
+    
+    [Serializable]
+    public class EggSpawnerPosition
+    {
+        public Vector3 position;
+        public Quaternion rotation;
+        public Vector3 direction;
+    }
+    
+    [Header("Spawner Settings")]
+    [SerializeField] private EggSpawnerPosition[] positions;
+    [SerializeField] private GameObject[] eggPrefabs;
+    [SerializeField] private float spawnTimeCooldown = 1f;
+    [SerializeField] private float minSpawnDelay = 1f;
+    [SerializeField] private float maxSpawnDelay = 3f;
+    [SerializeField] private int maxActiveEggs = 10;
+
+    private float _spawnTimer;
+    private int _eggPoints;
+    
+    private List<GameObject> _activeEggs = new List<GameObject>();
+
+    private void Awake()
+    {
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        _spawnTimer  = spawnTimeCooldown;
+        StartCoroutine(SpawnEggs());
+    }
+    
+    private void Update()
+    {
+        if (_spawnTimer > 0)
+        {
+            _spawnTimer -= Time.deltaTime;
+        }
+        else
+        {
+            _spawnTimer = spawnTimeCooldown;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(SpawnEggs());
+        }
+    }
+    
+    private IEnumerator SpawnEggs()
+    {
+        while (true)
+        {
+            _activeEggs.RemoveAll(egg => !egg);
+
+            if (_activeEggs.Count < maxActiveEggs)
+            {
+                SpawnRandomEgg();
+                _eggPoints++;
+            }
+            else
+            {
+                foreach (var egg in _activeEggs)
+                {
+                    Destroy(egg);
+                }
+                
+                _activeEggs.RemoveAll(egg => !egg);
+            }
+
+            if (_eggPoints >= maxActiveEggs)
+            {
+                float speedIncrease = 0.3f;
+                
+                maxSpawnDelay -= speedIncrease;
+
+                foreach (var egg in eggPrefabs)
+                {
+                    Egg.IncreaseGlobalEggSpeed();
+                }
+
+                _eggPoints = 0;
+            }
+            
+            float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    private void SpawnRandomEgg()
+    {
+        if(positions == null || eggPrefabs == null)
+            return;
+        
+        EggSpawnerPosition position = positions[Random.Range(0, positions.Length)];
+        GameObject eggObj =  eggPrefabs[Random.Range(0, eggPrefabs.Length)];
+        
+        GameObject spawnedEgg = Instantiate(eggObj, position.position, position.rotation);
+        _activeEggs.Add(spawnedEgg);
+        
+        Egg egg  = spawnedEgg.GetComponent<Egg>();
+        if (egg)
+        {
+            egg.Init(position.direction);
+        }
+    }
+
+    public void RemoveEggFromList(GameObject egg)
+    {
+        _activeEggs.Remove(egg);
+    }
+ 
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (positions == null) 
+            return;
+
+        Gizmos.color = Color.yellow;
+
+        foreach (var pos in positions)
+        {
+            Gizmos.DrawSphere(pos.position, 0.2f);
+
+            Vector3 forward = pos.rotation * Vector3.forward;
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(pos.position, forward * 1f);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(pos.position, pos.direction.normalized * 1.5f);
+
+#if UNITY_EDITOR
+            UnityEditor.Handles.Label(pos.position + Vector3.up * 0.3f, "Egg Spawn");
+#endif
+
+            Gizmos.color = Color.yellow; 
+        }
+    }
+#endif
+}

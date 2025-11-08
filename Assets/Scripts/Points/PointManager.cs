@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PointManager : MonoBehaviour
 {
+    public static PointManager Instance;
+    
     [SerializeField] private int currentPoints;
     [SerializeField] private  int maxPoints;
     [SerializeField] private int minPoints;
@@ -13,6 +15,14 @@ public class PointManager : MonoBehaviour
     public int CurrentPoints 
     {
         get { return currentPoints; }
+    }
+
+    private void Awake()
+    {
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     private void Start()

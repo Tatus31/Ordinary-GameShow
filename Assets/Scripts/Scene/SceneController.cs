@@ -50,15 +50,25 @@ public class SceneController : MonoBehaviour
         _loadSceneOperation.allowSceneActivation  = true; 
     }
 
+    public void LoadWinningScene(string sceneName)
+    {
+        
+    }
+
     private IEnumerator PrewarmSceneCoroutine(string sceneName)
     {
         _loadSceneOperation = SceneManager.LoadSceneAsync(sceneName);
-        _loadSceneOperation.allowSceneActivation = false;
-
-        while (_loadSceneOperation.progress < 0.9f)
+        
+        if (_loadSceneOperation != null)
         {
-            yield return null;
+            _loadSceneOperation.allowSceneActivation = false;
+
+            while (_loadSceneOperation.progress < 0.9f)
+            {
+                yield return null;
+            }
         }
+
 #if UNITY_EDITOR
         Debug.Log("Prewarmed scene " + sceneName);
 #endif
