@@ -8,6 +8,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject curtainObj;
     [SerializeField] private Animator  animator;
     [SerializeField] private float transitionDuration = 1f;
+    [SerializeField] private bool shouldPersist;
     
     public static SceneController Instance;
 
@@ -18,7 +19,9 @@ public class SceneController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            
+            if(shouldPersist)
+                DontDestroyOnLoad(gameObject);
         }
         else
         {
