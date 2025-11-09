@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RuleIntroduction
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: ... Now that's out of the way, well then let's begin introducing
-      our wonderful rules
+  - DialogueText: ... Now that's out of the way, well then let's begin by introducing
+      our lovely set of rules
     BranchKey: 
     IsExpectedToBranch: 0

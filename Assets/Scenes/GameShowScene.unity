@@ -10813,13 +10813,13 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - Dialogues:
-    - {fileID: 11400000, guid: c1d19e8fbf40da347a7a71dae74ecc38, type: 2}
     - {fileID: 11400000, guid: ed3489706b9080d4e9f584a062c06611, type: 2}
+    - {fileID: 11400000, guid: c1d19e8fbf40da347a7a71dae74ecc38, type: 2}
     - {fileID: 11400000, guid: eb8d4b1e17c3aa542a331c642027ba35, type: 2}
     - {fileID: 11400000, guid: 2fffd017a9647c64c9ba342b080fb12f, type: 2}
     - {fileID: 11400000, guid: f8e4ecaf1e02b504daa777a784d9e4be, type: 2}
     Camera: {fileID: 1641113190}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
     timeToNextDialogue: 2
     OnDialogueComplete:
@@ -11293,8 +11293,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 429406068767753914, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e947365a59b5680478c11e4aa42f51ab, type: 3}
-  m_Resource: {fileID: 8300000, guid: e947365a59b5680478c11e4aa42f51ab, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 63ba13c182b79df44bde840da46115ca, type: 3}
+  m_Resource: {fileID: 8300000, guid: 63ba13c182b79df44bde840da46115ca, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

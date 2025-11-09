@@ -12,6 +12,7 @@ public class NameSelection : MonoBehaviour
     public static bool IsTypingName = false;
     private string _currentName;
     private const int MaxNameLength = 3;
+    private Coroutine _loopCoroutine;
 
     private void Start()
     {
@@ -86,6 +87,12 @@ public class NameSelection : MonoBehaviour
 
     private void EvaluateTheBranches()
     {
+        if (_loopCoroutine != null)
+        {
+            StopCoroutine(_loopCoroutine);
+            _loopCoroutine = null;
+        }
+        
         if (_currentName == "")
         {
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
@@ -93,7 +100,7 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", true);
             
-            StartCoroutine(PlayNextThenPreviousDialogue());
+            _loopCoroutine = StartCoroutine(PlayNextThenPreviousDialogue());
         }
         else if (_currentName.Length < MaxNameLength)
         {
@@ -102,7 +109,7 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", true);
             
-            StartCoroutine(PlayNextThenPreviousDialogue());
+            _loopCoroutine = StartCoroutine(PlayNextThenPreviousDialogue());
         }
         else if (_currentName == "DUC" || _currentName == "DUK" || _currentName == "DAK" || _currentName == "DCK")
         {
@@ -110,8 +117,8 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
             DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("duc", true);
-            
-            dialogueManager.StartNextDialogue();
+
+            StartCoroutine(WaitAndStartNextDialogue());
         }
         else if (_currentName == "DIK" || _currentName == "DIC" || _currentName == "FUC" || _currentName == "FCK" || _currentName == "PIS" || _currentName == "PUS")
         {
@@ -120,7 +127,7 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("duc", false);
             DialogueBranchManager.Instance.SetBranch("IsBadWord", true);
 
-            dialogueManager.StartNextDialogue();
+            StartCoroutine(WaitAndStartNextDialogue());
         }
         else
         {
@@ -128,9 +135,21 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
             DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("nameIsValid", true);
-            
-            dialogueManager.StartNextDialogue();
+
+            StartCoroutine(WaitAndStartNextDialogue());
         }
+    }
+
+    private IEnumerator WaitAndStartNextDialogue()
+    {
+        while (dialogueManager.IsCameraBlending)
+        {
+            yield return null;
+        }
+
+        yield return null;
+        
+        dialogueManager.StartNextDialogue();
     }
 
     private IEnumerator PlayNextThenPreviousDialogue()
