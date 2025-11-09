@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue 2Branch A
+  m_Name: ShowIntroduction
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Thats quite a short name
-    BranchKey: IsSmallerThanMaxValue
-    IsExpectedToBranch: 1
+  - DialogueText: 'Well now that you know how irresistible you are lets begin our.... '
+    BranchKey: 
+    IsExpectedToBranch: 0

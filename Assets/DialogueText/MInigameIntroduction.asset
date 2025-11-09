@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue 2Branch C
+  m_Name: MInigameIntroduction
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Thats a perfect name
-    BranchKey: nameIsValid
-    IsExpectedToBranch: 1
+  - DialogueText: Soon we will thrust you right into our novel and SUPER fun minigames!
+    BranchKey: 
+    IsExpectedToBranch: 0
