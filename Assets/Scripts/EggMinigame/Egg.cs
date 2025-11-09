@@ -10,16 +10,14 @@ public class Egg : MonoBehaviour
     [SerializeField] private float baseSpeed = 3f;
     [SerializeField] private float baseDelay = 1f;
     [Header("Falling Settings")]
-    [SerializeField] private float timeBeforeFall = 2f; 
     [SerializeField] private float fallAcceleration = 9.8f; 
     [Header("Spawn Settings")]
     [Range(0f, 1f)] [SerializeField] float spawnChance = 1f;
+    [Header("Points")]
+    [SerializeField] private int eggPoints = 5;
     
-
     private float _currentSpeed;
     private float _currentDelay;
-    private float _currentTimeBeforeFall;
-    
     private float _fallSpeed;
     private bool _isFalling;
 
@@ -27,9 +25,9 @@ public class Egg : MonoBehaviour
     
     private static float _globalSpeedBonus = 0f;
     private static float _globalDelayReduction = 0f;
-    private static float _globalFallTimeReduction = 0f;
     
     public float SpawnChance { get { return spawnChance; } set { spawnChance = value; } }
+    public int  EggPoints { get { return eggPoints; } set { eggPoints = value; } }
 
     public void Init(Vector3 dir)
     {
@@ -37,7 +35,6 @@ public class Egg : MonoBehaviour
 
         _currentSpeed = baseSpeed + _globalSpeedBonus;
         _currentDelay = Mathf.Max(0, baseDelay - _globalDelayReduction);
-        _currentTimeBeforeFall = Mathf.Max(0, timeBeforeFall - _globalFallTimeReduction);
         
         _fallSpeed = 0f;
         _isFalling = false;
@@ -48,18 +45,15 @@ public class Egg : MonoBehaviour
         _moveRoutine = StartCoroutine(MoveEggAfterDelay());
     }
 
-    public static void IncreaseGlobalEggSpeed(float speedIncrease = 0.3f, float delayDecrease = 0.1f, float fallTimeDecrease = 0.3f)
+    public static void IncreaseGlobalEggSpeed(float speedIncrease = 0.3f, float delayDecrease = 0.1f)
     {
         _globalSpeedBonus += speedIncrease;
         _globalDelayReduction += delayDecrease;
-        _globalFallTimeReduction += fallTimeDecrease;
     }
 
     private IEnumerator MoveEggAfterDelay()
     {
         yield return new WaitForSeconds(_currentDelay);
-
-        StartCoroutine(StartFallingAfterTime());
 
         while (true)
         {
@@ -75,10 +69,12 @@ public class Egg : MonoBehaviour
             yield return null;
         }
     }
-
-    private IEnumerator StartFallingAfterTime()
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(_currentTimeBeforeFall);
-        _isFalling = true;
+        if (collision.CompareTag("FallZone"))
+        {
+            _isFalling = true;
+        }
     }
 }

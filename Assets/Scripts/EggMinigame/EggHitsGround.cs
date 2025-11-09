@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class EggCollection : MonoBehaviour
+public class EggHitsGround : MonoBehaviour
 {
     [SerializeField] private EggSpawner eggSpawner;
+    [SerializeField] private GameObject eggSplatObj;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,9 +16,15 @@ public class EggCollection : MonoBehaviour
             PointManager.Instance.ChangePointsText();
             
             eggSpawner.RemoveEggFromList(other.gameObject);
+            var egg = Instantiate(eggSplatObj, other.transform.position, Quaternion.identity);
+            StartCoroutine(SpawnEggSplat(egg));
             Destroy(other.gameObject);
         }
     }
-
-
+    
+    private IEnumerator SpawnEggSplat(GameObject egg)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(egg);
+    }
 }
