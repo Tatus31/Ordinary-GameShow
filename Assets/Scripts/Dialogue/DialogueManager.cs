@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TypeWriter typeWriter;
     [SerializeField] private CinemachineBrain cinemachineBrain;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private CinemachineCamera startingCamera;
 
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
@@ -77,6 +78,9 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("spriteRenderer is null");
 #endif
         }
+        
+        startingCamera.Priority = 2;
+        StartNextDialogue();
     }
 
     private void Update()
@@ -201,8 +205,7 @@ public class DialogueManager : MonoBehaviour
             StartNextDialogue();
         }
     }
-        
-    //TODO: Find a fix for blending fucking up the rendering of the text 
+
     private IEnumerator StartTypingAfterBlend(DialogueBox dialogueBox)
     {
         if (cinemachineBrain)

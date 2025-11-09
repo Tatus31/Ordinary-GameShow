@@ -97,11 +97,20 @@ public class NameSelection : MonoBehaviour
             
             StartCoroutine(PlayNextThenPreviousDialogue());
         }
-        else if (_currentName.Contains("DUC") || _currentName.Contains("DUK") || _currentName.Contains("DAK"))
+        else if (_currentName == "DUC" || _currentName == "DUK" || _currentName == "DAK" || _currentName == "DCK")
         {
             DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
             DialogueBranchManager.Instance.SetBranch("duc", true);
+            
+            dialogueManager.StartNextDialogue();
+        }
+        else if (_currentName == "DIK" || _currentName == "DIC" || _currentName == "FUC" || _currentName == "FCK" || _currentName == "PIS" || _currentName == "PUS")
+        {
+            DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
+            DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
+            DialogueBranchManager.Instance.SetBranch("duc", false);
+            DialogueBranchManager.Instance.SetBranch("IsBadWord", true);
             
             dialogueManager.StartNextDialogue();
         }

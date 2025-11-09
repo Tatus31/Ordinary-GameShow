@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue 2
+  m_Name: MInigameIntroduction_Part2
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Now enter your name
+  - DialogueText: There depanding on your performance our show will award you with
+      points
     BranchKey: 
     IsExpectedToBranch: 0

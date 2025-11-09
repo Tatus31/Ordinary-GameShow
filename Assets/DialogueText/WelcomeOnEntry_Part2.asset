@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue 2Branch B
+  m_Name: WelcomeOnEntry_Part2
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Thats not funny type the name please
-    BranchKey: nameSpaceisEmpty
-    IsExpectedToBranch: 1
+  - DialogueText: We haven't had a new contestant since... I don't eveeen remember
+      when
+    BranchKey: 
+    IsExpectedToBranch: 0

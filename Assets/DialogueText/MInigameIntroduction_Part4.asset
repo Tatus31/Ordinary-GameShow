@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: EntryDialogue 2Branch D
+  m_Name: MInigameIntroduction_Part4
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: DUCK DUCK DUCK
-    BranchKey: duc
-    IsExpectedToBranch: 1
+  - DialogueText: But beware... If you do not have enough points by the end of our
+      show. BAD thing will happen
+    BranchKey: 
+    IsExpectedToBranch: 0
