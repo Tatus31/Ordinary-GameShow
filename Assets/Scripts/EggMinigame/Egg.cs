@@ -9,10 +9,12 @@ public class Egg : MonoBehaviour
     [Header("Base Movement Settings")]
     [SerializeField] private float baseSpeed = 3f;
     [SerializeField] private float baseDelay = 1f;
-
     [Header("Falling Settings")]
     [SerializeField] private float timeBeforeFall = 2f; 
     [SerializeField] private float fallAcceleration = 9.8f; 
+    [Header("Spawn Settings")]
+    [Range(0f, 1f)] [SerializeField] float spawnChance = 1f;
+    
 
     private float _currentSpeed;
     private float _currentDelay;
@@ -26,6 +28,8 @@ public class Egg : MonoBehaviour
     private static float _globalSpeedBonus = 0f;
     private static float _globalDelayReduction = 0f;
     private static float _globalFallTimeReduction = 0f;
+    
+    public float SpawnChance { get { return spawnChance; } set { spawnChance = value; } }
 
     public void Init(Vector3 dir)
     {

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class EggSpawner : MonoBehaviour
 {
     public static EggSpawner Instance;
-    
+
     [Serializable]
     public class EggSpawnerPosition
     {
@@ -15,7 +15,7 @@ public class EggSpawner : MonoBehaviour
         public Quaternion rotation;
         public Vector3 direction;
     }
-    
+
     [Header("Spawner Settings")]
     [SerializeField] private EggSpawnerPosition[] positions;
     [SerializeField] private GameObject[] eggPrefabs;
@@ -26,7 +26,6 @@ public class EggSpawner : MonoBehaviour
 
     private float _spawnTimer;
     private int _eggPoints;
-    
     private List<GameObject> _activeEggs = new List<GameObject>();
 
     private void Awake()
@@ -39,27 +38,21 @@ public class EggSpawner : MonoBehaviour
 
     private void Start()
     {
-        _spawnTimer  = spawnTimeCooldown;
+        _spawnTimer = spawnTimeCooldown;
         StartCoroutine(SpawnEggs());
     }
-    
+
     private void Update()
     {
         if (_spawnTimer > 0)
-        {
             _spawnTimer -= Time.deltaTime;
-        }
         else
-        {
             _spawnTimer = spawnTimeCooldown;
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             StartCoroutine(SpawnEggs());
-        }
     }
-    
+
     private IEnumerator SpawnEggs()
     {
         while (true)
@@ -68,65 +61,93 @@ public class EggSpawner : MonoBehaviour
 
             if (_activeEggs.Count < maxActiveEggs)
             {
-                SpawnRandomEgg();
+                SpawnWeightedEgg();
                 _eggPoints++;
             }
             else
             {
                 foreach (var egg in _activeEggs)
-                {
                     Destroy(egg);
-                }
-                
+
                 _activeEggs.RemoveAll(egg => !egg);
             }
 
             if (_eggPoints >= maxActiveEggs)
             {
                 float speedIncrease = 0.3f;
-                
                 maxSpawnDelay -= speedIncrease;
 
-                foreach (var egg in eggPrefabs)
-                {
+                foreach (var eggPrefab in eggPrefabs)
                     Egg.IncreaseGlobalEggSpeed();
-                }
 
                 _eggPoints = 0;
             }
-            
+
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
         }
     }
 
-    private void SpawnRandomEgg()
+    private void SpawnWeightedEgg()
     {
-        if(positions == null || eggPrefabs == null)
+        if (positions == null || eggPrefabs == null || eggPrefabs.Length == 0)
             return;
-        
+
         EggSpawnerPosition position = positions[Random.Range(0, positions.Length)];
-        GameObject eggObj =  eggPrefabs[Random.Range(0, eggPrefabs.Length)];
+
+        GameObject eggPrefab = GetWeightedEggPrefab();
         
-        GameObject spawnedEgg = Instantiate(eggObj, position.position, position.rotation);
+        if (!eggPrefab)
+            return;
+
+        GameObject spawnedEgg = Instantiate(eggPrefab, position.position, position.rotation);
         _activeEggs.Add(spawnedEgg);
+
+        Egg egg = spawnedEgg.GetComponent<Egg>();
         
-        Egg egg  = spawnedEgg.GetComponent<Egg>();
         if (egg)
-        {
             egg.Init(position.direction);
+    }
+
+    private GameObject GetWeightedEggPrefab()
+    {
+        float totalChance = 0f;
+        foreach (var eggObj in eggPrefabs)
+        {
+            Egg egg = eggObj.GetComponent<Egg>();
+            
+            if (egg)
+                totalChance += egg.SpawnChance;
         }
+
+        float randomValue = Random.value * totalChance;
+        float eggSpawnChance = 0f;
+
+        foreach (var eggObj in eggPrefabs)
+        {
+            Egg egg = eggObj.GetComponent<Egg>();
+            
+            if (!egg)
+                continue;
+
+            eggSpawnChance += egg.SpawnChance;
+            
+            if (randomValue <= eggSpawnChance)
+                return eggObj;
+        }
+
+        return eggPrefabs[eggPrefabs.Length - 1];
     }
 
     public void RemoveEggFromList(GameObject egg)
     {
         _activeEggs.Remove(egg);
     }
- 
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (positions == null) 
+        if (positions == null)
             return;
 
         Gizmos.color = Color.yellow;
@@ -146,7 +167,7 @@ public class EggSpawner : MonoBehaviour
             UnityEditor.Handles.Label(pos.position + Vector3.up * 0.3f, "Egg Spawn");
 #endif
 
-            Gizmos.color = Color.yellow; 
+            Gizmos.color = Color.yellow;
         }
     }
 #endif
