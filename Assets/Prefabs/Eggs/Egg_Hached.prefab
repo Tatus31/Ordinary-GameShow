@@ -138,7 +138,7 @@ MonoBehaviour:
   baseDelay: 1
   fallAcceleration: 9.8
   spawnChance: 0.4
-  eggPoints: 5
+  eggPoints: 20
 --- !u!58 &396432806240009037
 CircleCollider2D:
   m_ObjectHideFlags: 0

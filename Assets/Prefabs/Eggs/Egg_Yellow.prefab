@@ -134,11 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385d2e683dff98644ac10d19e1a3c869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 1
-  baseDelay: 1
+  baseSpeed: 1.4
+  baseDelay: 1.4
   fallAcceleration: 9.8
   spawnChance: 0.7
-  eggPoints: 5
+  eggPoints: 15
 --- !u!58 &396432806240009037
 CircleCollider2D:
   m_ObjectHideFlags: 0

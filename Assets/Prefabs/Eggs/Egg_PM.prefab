@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 1
-  baseDelay: 1
+  baseDelay: 3
   fallAcceleration: 9.8
   spawnChance: 0.02
-  eggPoints: 5
+  eggPoints: 30
 --- !u!58 &396432806240009037
 CircleCollider2D:
   m_ObjectHideFlags: 0

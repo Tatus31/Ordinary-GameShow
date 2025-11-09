@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385d2e683dff98644ac10d19e1a3c869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 1
-  baseDelay: 1
+  baseSpeed: 1.2
+  baseDelay: 1.5
   fallAcceleration: 9.8
   spawnChance: 1
   eggPoints: 5
