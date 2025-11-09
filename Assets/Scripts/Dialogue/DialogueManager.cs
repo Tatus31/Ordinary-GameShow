@@ -23,9 +23,10 @@ public class DialogueManager : MonoBehaviour
     
     [SerializeField] private DialogueBox[] dialogueBoxes;
     [Space(10f)]
-    [SerializeField] private TextMeshProUGUI dialogueBoxText;
-
+    [Header("Script Refrences")]
     [SerializeField] private TypeWriter typeWriter;
+    [Header("Object Refrences")]
+    [SerializeField] private TextMeshProUGUI dialogueBoxText;
     [SerializeField] private CinemachineBrain cinemachineBrain;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private CinemachineCamera startingCamera;
