@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MInigameIntroduction_Part3
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: There depanding on your performance I will award you with points
+  - DialogueText: Your points will apear right next to your name so that everyone
+      knows how well you are doing
     BranchKey: 
     IsExpectedToBranch: 0
