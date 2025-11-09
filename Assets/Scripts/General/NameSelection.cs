@@ -112,7 +112,7 @@ public class NameSelection : MonoBehaviour
             DialogueBranchManager.Instance.SetBranch("duc", false);
             DialogueBranchManager.Instance.SetBranch("IsBadWord", true);
             
-            dialogueManager.StartNextDialogue();
+            dialogueManager.StartNextDialogue()
         }
         else
         {
