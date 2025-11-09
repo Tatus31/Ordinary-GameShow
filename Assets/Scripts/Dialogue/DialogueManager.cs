@@ -5,22 +5,21 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
 
+[Serializable]
+public class DialogueBox
+{
+    public DialogueBoxSO[] Dialogues;
+    public CinemachineCamera Camera;
+    public bool isForcedToNextDialogue;
+    public Sprite Sprite;
+    [Range(0, 60)]
+    public float timeToNextDialogue;
+    [Space(5)]
+    public UnityEvent OnDialogueComplete;
+}
 
 public class DialogueManager : MonoBehaviour
 {
-    [Serializable]
-    private class DialogueBox
-    {
-        public DialogueBoxSO[] Dialogues;
-        public CinemachineCamera Camera;
-        public bool isForcedToNextDialogue;
-        public Sprite Sprite;
-        [Range(0, 60)]
-        public float timeToNextDialogue;
-        [Space(5)]
-        public UnityEvent OnDialogueComplete;
-    }
-    
     [SerializeField] private DialogueBox[] dialogueBoxes;
     [Space(10f)]
     [Header("Script Refrences")]
