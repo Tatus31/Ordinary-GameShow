@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
         public DialogueBoxSO[] Dialogues;
         public CinemachineCamera Camera;
         public bool isForcedToNextDialogue;
-        // public bool isForcedToStart;
+        public Sprite Sprite;
         [Range(0, 60)]
         public float timeToNextDialogue;
         [Space(5)]
@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private TypeWriter typeWriter;
     [SerializeField] private CinemachineBrain cinemachineBrain;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
@@ -67,6 +68,13 @@ public class DialogueManager : MonoBehaviour
         {
 #if UNITY_EDITOR
             Debug.LogWarning("Cinemachine Brain is null");
+#endif
+        }
+
+        if (!spriteRenderer)
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning("spriteRenderer is null");
 #endif
         }
     }
@@ -116,6 +124,7 @@ public class DialogueManager : MonoBehaviour
         if (_currentDialogueIndex >= 0 && _currentDialogueIndex < dialogueBoxes.Length)
         {
             dialogueBoxes[_currentDialogueIndex].Camera.Priority = 0;
+            spriteRenderer.sprite = dialogueBoxes[_currentDialogueIndex].Sprite;
         }
 
         _currentDialogueIndex++;
@@ -129,6 +138,7 @@ public class DialogueManager : MonoBehaviour
         
         _currentDialogueBox = dialogueBoxes[_currentDialogueIndex];
         _currentDialogueBox.Camera.Priority = 10;
+        spriteRenderer.sprite = dialogueBoxes[_currentDialogueIndex].Sprite;
         
         ForceDialogueRoutine();
 
@@ -150,6 +160,7 @@ public class DialogueManager : MonoBehaviour
         if (_currentDialogueIndex >= 0 && _currentDialogueIndex < dialogueBoxes.Length)
         {
             dialogueBoxes[_currentDialogueIndex].Camera.Priority = 0;
+            spriteRenderer.sprite = dialogueBoxes[_currentDialogueIndex].Sprite;
         }
         
         _currentDialogueIndex--;
@@ -164,6 +175,8 @@ public class DialogueManager : MonoBehaviour
         
         _currentDialogueBox = dialogueBoxes[_currentDialogueIndex];
         _currentDialogueBox.Camera.Priority = 10;
+        spriteRenderer.sprite = dialogueBoxes[_currentDialogueIndex].Sprite;
+        
                 
         ForceDialogueRoutine();
         
