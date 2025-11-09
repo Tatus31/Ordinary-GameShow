@@ -10605,7 +10605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1204081369}
   dialogueManager: {fileID: 2063541703}
-  fixedDelay: 2
+  fixedDelay: 5
 --- !u!1 &2063541702
 GameObject:
   m_ObjectHideFlags: 0
@@ -11088,6 +11088,7 @@ MonoBehaviour:
   cinemachineBrain: {fileID: 1845654815}
   spriteRenderer: {fileID: 130379382}
   startingCamera: {fileID: 885115410}
+  clickCooldown: 0.4
 --- !u!4 &2063541704
 Transform:
   m_ObjectHideFlags: 0

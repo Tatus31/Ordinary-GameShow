@@ -29,9 +29,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private CinemachineBrain cinemachineBrain;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private CinemachineCamera startingCamera;
+    [Header("Click Cooldown")]
+    [SerializeField] private float clickCooldown = 0.3f;
 
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
+    private float _lastClickTime = -Mathf.Infinity;
     
     private DialogueBox _currentDialogueBox;
     
@@ -88,10 +91,21 @@ public class DialogueManager : MonoBehaviour
         if(NameSelection.IsTypingName)
             return;
         
+        if (IsCameraBlending)
+            return;
+        
         if (Input.GetButtonDown("Fire1"))
         {
+            if (Time.time - _lastClickTime < clickCooldown)
+                return;
+            
+            _lastClickTime = Time.time;
+            
             if (typeWriter.IsTyping)
             {
+                if(_currentDialogueBox == null || _currentDialogueBox.isForcedToNextDialogue)
+                    return;
+                
                 typeWriter.SkipTyping(() =>
                 {
                     _currentDialogueBox?.OnDialogueComplete?.Invoke();

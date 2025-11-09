@@ -7,7 +7,7 @@ public class NameSelection : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private DialogueManager dialogueManager;
-    [Space(5)] [SerializeField] private float fixedDelay = 0.2f;
+    [Space(5)] [SerializeField] private float fixedDelay = 2.5f;
     
     public static bool IsTypingName = false;
     private string _currentName;
@@ -66,13 +66,16 @@ public class NameSelection : MonoBehaviour
     }
     
     public void StartTyping()
-    {
+    {        
+        IsTypingName = true;
+        
         _currentName = "";
         nameText.text = "";
-        IsTypingName = true;
         
         DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
         DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
+        DialogueBranchManager.Instance.SetBranch("duc", false);
+        DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
     }
 
     private void FinishTyping()
@@ -85,15 +88,19 @@ public class NameSelection : MonoBehaviour
     {
         if (_currentName == "")
         {
-            DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", true);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
+            DialogueBranchManager.Instance.SetBranch("duc", false);
+            DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
+            DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", true);
             
             StartCoroutine(PlayNextThenPreviousDialogue());
         }
         else if (_currentName.Length < MaxNameLength)
         {
+            DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
+            DialogueBranchManager.Instance.SetBranch("duc", false);
+            DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", true);
-            DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
             
             StartCoroutine(PlayNextThenPreviousDialogue());
         }
@@ -101,6 +108,7 @@ public class NameSelection : MonoBehaviour
         {
             DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
+            DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("duc", true);
             
             dialogueManager.StartNextDialogue();
@@ -118,6 +126,7 @@ public class NameSelection : MonoBehaviour
         {
             DialogueBranchManager.Instance.SetBranch("nameSpaceisEmpty", false);
             DialogueBranchManager.Instance.SetBranch("IsSmallerThanMaxValue", false);
+            DialogueBranchManager.Instance.SetBranch("IsBadWord", false);
             DialogueBranchManager.Instance.SetBranch("nameIsValid", true);
             
             dialogueManager.StartNextDialogue();
