@@ -5,11 +5,10 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    
-    [Header("Unmute & Fade Settings (For UnityEvents)")]
-    [SerializeField] private string soundToControl;
-    [SerializeField] private float playDuration = 4f;
-    [SerializeField] private float fadeDuration = 4f;
+
+    private string _soundToControl;
+    private float _playDuration = 4f;
+    private float _fadeDuration = 4f;
 
     [SerializeField] private List<AudioSource> playingSounds = new List<AudioSource>();
 
@@ -29,17 +28,17 @@ public class AudioManager : MonoBehaviour
     
     public void SetSoundToControl(string soundName)
     {
-        soundToControl = soundName;
+        _soundToControl = soundName;
     }
     
     public void SetPlayDuration(float duration)
     {
-        playDuration = duration;
+        _playDuration = duration;
     }
 
     public void SetFadeDuration(float duration)
     {
-        fadeDuration = duration;
+        _fadeDuration = duration;
     }
     
     public static void PlaySound(string soundName)
@@ -232,26 +231,26 @@ public class AudioManager : MonoBehaviour
         if (!Instance)
             return;
 
-        GameObject soundObj = GameObject.Find(soundToControl);
+        GameObject soundObj = GameObject.Find(_soundToControl);
 
         if (soundObj)
         {
             AudioSource audioSource = soundObj.GetComponent<AudioSource>();
             if (audioSource)
             {
-                StartCoroutine(UnmuteThenFadeOutCoroutine(audioSource, playDuration, fadeDuration));
+                StartCoroutine(UnmuteThenFadeOutCoroutine(audioSource, _playDuration, _fadeDuration));
             }
 #if UNITY_EDITOR
             else
             {
-                Debug.LogWarning($"No AudioSource component found on {soundToControl}");
+                Debug.LogWarning($"No AudioSource component found on {_soundToControl}");
             }
 #endif
         }
 #if UNITY_EDITOR
         else
         {
-            Debug.LogWarning($"Sound object '{soundToControl}' not found in scene");
+            Debug.LogWarning($"Sound object '{_soundToControl}' not found in scene");
         }
 #endif
     }
