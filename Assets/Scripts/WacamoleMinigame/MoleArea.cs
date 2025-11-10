@@ -5,6 +5,9 @@ public class MoleArea : MonoBehaviour
 {
     [SerializeField] private bool isActive;
     [SerializeField] private Transform mole;
+    [SerializeField] private SpriteRenderer duckSprite;
+    [SerializeField] private Sprite normalDuckSprite;
+    [SerializeField] private Sprite duckHitSprite;
     [SerializeField] private Vector3 upPosition = new Vector3(0f, 0.25f, 0f);
     [SerializeField] private Vector3 downPosition = new Vector3(0f, -0.25f, 0f);
 
@@ -20,6 +23,21 @@ public class MoleArea : MonoBehaviour
             isActive = value;
             _targetPosition = isActive ? transform.position + upPosition : transform.position + downPosition;
         }
+    }
+
+    public SpriteRenderer DuckSprite
+    {
+        get { return duckSprite; }
+    }
+
+    public Sprite NormalDuckSprite
+    {
+        get { return normalDuckSprite; }
+    }
+
+    public Sprite DuckHitSprite
+    {
+        get { return duckHitSprite; }
     }
 
     private void Start()

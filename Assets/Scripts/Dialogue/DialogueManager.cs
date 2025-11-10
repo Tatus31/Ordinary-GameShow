@@ -241,7 +241,8 @@ public class DialogueManager : MonoBehaviour
                 yield return null; 
             }
         }
-
+        
+        Debug.Log(dialogueBox.Dialogues[0].dialogueBoxes[0].DialogueText);
         var dialogueBranch = GetBranchDialogue(dialogueBox.Dialogues);
 
         if (dialogueBranch == null)

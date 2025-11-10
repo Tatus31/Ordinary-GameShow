@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 239842997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8401515416178451425}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: ProcessAnswerClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 755305234}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &239842997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +445,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 411528520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8401515416178451425}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: ProcessAnswerClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1056376816}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &411528520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,7 +686,7 @@ GameObject:
   - component: {fileID: 711535593}
   m_Layer: 5
   m_Name: TextA
-  m_TagString: Untagged
+  m_TagString: AnswerA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,7 +970,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 734744863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8401515416178451425}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: ProcessAnswerClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 975349653}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &734744863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,7 +1034,7 @@ GameObject:
   - component: {fileID: 755305236}
   m_Layer: 5
   m_Name: TextC
-  m_TagString: Untagged
+  m_TagString: AnswerC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,7 +1186,7 @@ GameObject:
   - component: {fileID: 975349655}
   m_Layer: 5
   m_Name: TextB
-  m_TagString: Untagged
+  m_TagString: AnswerB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1288,7 +1324,7 @@ GameObject:
   - component: {fileID: 1056376818}
   m_Layer: 5
   m_Name: TextD
-  m_TagString: Untagged
+  m_TagString: AnswerD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1689,7 +1725,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1193514852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8401515416178451425}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: ProcessAnswerClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 711535591}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1193514852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4245,10 +4293,50 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - Dialogues:
-    - {fileID: 11400000, guid: 93f261e78b681a3469f2055c9b568e05, type: 2}
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
     Camera: {fileID: 7545143386724126335}
     isForcedToNextDialogue: 0
-    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 35c0c8e072ac2bd458263dc1076194a8, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 04c51270c6ef22e4f82f9cef6b1b24b8, type: 3}
+    timeToNextDialogue: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 0
     OnDialogueComplete:
       m_PersistentCalls:
@@ -11123,7 +11211,13 @@ MonoBehaviour:
     QuizAnswerB: {fileID: 11400000, guid: ab1e1d4b884acd44a82ec834875d1110, type: 2}
     QuizAnswerC: {fileID: 11400000, guid: 8c362bc2dfe938e4597493b3c39b8977, type: 2}
     QuizAnswerD: {fileID: 11400000, guid: 6e1c729631503dd44bec1500a71817a6, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: a34e58a1132bd8044ba104b93465e9eb, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: 46c98c92c7063ec43bfc5c79d0c1e168, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 8509820711c66be49a2c89e58c5e4440, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: 20b9631d061dc864ea34592f9e12abb9, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: dd7e70b975e269240b09975765863655, type: 2}
   typeWriter: {fileID: 7935271767010175068}
+  dialogueManager: {fileID: 2144979532658494360}
   quizQuestion: {fileID: 1072934560}
   quizAnswerA: {fileID: 711535593}
   quizAnswerB: {fileID: 975349655}

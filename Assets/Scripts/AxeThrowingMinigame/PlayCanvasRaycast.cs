@@ -137,6 +137,7 @@ public class PlayCanvasRaycast : MonoBehaviour
         if (moleArea.IsActive)
         {
             Debug.Log("Hit wacamole");
+            moleArea.DuckSprite.sprite = moleArea.DuckHitSprite;
             PointManager.Instance.AddPoints(points);
             moleArea.IsActive = false;
         }

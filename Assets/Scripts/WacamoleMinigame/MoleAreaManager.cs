@@ -53,6 +53,7 @@ public class MoleAreaManager : MonoBehaviour
             {
                 randomIndex = Random.Range(0,  moleAreas.Count);
                 moleAreas[randomIndex].IsActive = true;
+                moleAreas[randomIndex].DuckSprite.sprite = moleAreas[randomIndex].NormalDuckSprite;
                 
                 molesSpawned++;
             } 

@@ -11,6 +11,10 @@ TagManager:
   - Mole
   - Target_Red
   - Target_Golden
+  - AnswerA
+  - AnswerB
+  - AnswerC
+  - AnswerD
   layers:
   - Default
   - TransparentFX

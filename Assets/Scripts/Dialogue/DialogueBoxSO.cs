@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueBoxSO : ScriptableObject
 {
     public BranchingDialogue[] dialogueBoxes;
+    public bool IsTheRightAnswer;
 }
 
 [Serializable]
