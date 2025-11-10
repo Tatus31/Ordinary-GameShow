@@ -9,6 +9,8 @@ TagManager:
   - FallZone
   - Target
   - Mole
+  - Target_Red
+  - Target_Golden
   layers:
   - Default
   - TransparentFX

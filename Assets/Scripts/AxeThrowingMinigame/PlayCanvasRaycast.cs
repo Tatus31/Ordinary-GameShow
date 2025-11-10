@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; 
@@ -10,12 +11,16 @@ public class PlayCanvasRaycast : MonoBehaviour
     [SerializeField] private Camera uiCamera;
     [SerializeField] private RectTransform canvasRect;
     [SerializeField] private GameObject hoverObject;
+    [SerializeField] private GameObject poofPrefab;
 
     [Header("Settings")]
     [SerializeField] private float distanceFromCanvas = 0.01f;
     [SerializeField] private bool isForWacamole;
 
-    [Header("Points")] [SerializeField] private int points;
+    [Header("Points")] 
+    [SerializeField] private int points;
+    [SerializeField] private int pointsForRed;
+    [SerializeField] private int pointsForGolden;
     
     private void Awake()
     {
@@ -40,9 +45,9 @@ public class PlayCanvasRaycast : MonoBehaviour
                 GameObject hitObject;
                     
                 if(isForWacamole)
-                    hitObject  = GetObjectUnderMouse(canvasRect,Input.mousePosition, "Mole");
+                    hitObject  = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Mole"});
                 else
-                    hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, "Target");
+                    hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Target", "Target_Red",  "Target_Golden"});
                 
                 if(!hitObject)
                     return;
@@ -81,18 +86,18 @@ public class PlayCanvasRaycast : MonoBehaviour
         return null;
     }
 
-    private GameObject GetObjectUnderMouse(Transform parent, Vector2 screenPos, string targetTag)
+    private GameObject GetObjectUnderMouse(Transform parent, Vector2 screenPos, string[] targetTags)
     {
         foreach (Transform child in parent)
         {
-            if (child.gameObject.CompareTag(targetTag) && RectTransformUtility.RectangleContainsScreenPoint(child as RectTransform, screenPos, uiCamera))
+            if (targetTags.Contains(child.gameObject.tag) && RectTransformUtility.RectangleContainsScreenPoint(child as RectTransform, screenPos, uiCamera))
             {
                 return child.gameObject;
             }
 
-            GameObject found = GetObjectUnderMouse(child, screenPos, targetTag);
+            GameObject found = GetObjectUnderMouse(child, screenPos, targetTags);
             
-            if (found) 
+            if (found)
                 return found;
         }
 
@@ -106,9 +111,17 @@ public class PlayCanvasRaycast : MonoBehaviour
         
         if (hitObject)
         {
-            Debug.Log("Hit target");
+            var target = Instantiate(poofPrefab, hitObject.transform.position, Quaternion.identity);
+            EggCollectionManager.Instance.SpawnEggPuff(target);
             Destroy(hitObject);
-            PointManager.Instance.AddPoints(points);
+            Debug.Log("Hit target");
+            
+            if(hitObject.CompareTag("Target"))
+                PointManager.Instance.AddPoints(points);
+            else if(hitObject.CompareTag("Target_Red"))
+                PointManager.Instance.AddPoints(pointsForRed);
+            else if(hitObject.CompareTag("Target_Golden"))
+                PointManager.Instance.AddPoints(pointsForGolden);
         }
     }
     

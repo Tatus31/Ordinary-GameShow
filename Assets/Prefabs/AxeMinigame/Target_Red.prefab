@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5487765900885599088}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Target_Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6226415, g: 0.229085, b: 0.229085, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -86,8 +86,8 @@ GameObject:
   - component: {fileID: 7836716128536228497}
   - component: {fileID: 8591686323819511392}
   m_Layer: 5
-  m_Name: Target
-  m_TagString: Target
+  m_Name: Target_Red
+  m_TagString: Target_Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EggCollection : MonoBehaviour
 {
     [SerializeField] private EggSpawner eggSpawner;
-    [SerializeField] private GameObject PoofPrefab;
+    [SerializeField] private GameObject poofPrefab;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,7 +17,7 @@ public class EggCollection : MonoBehaviour
             PointManager.Instance.ChangePointsText();
             
             eggSpawner.RemoveEggFromList(other.gameObject);
-            var egg = Instantiate(PoofPrefab, other.transform.position, Quaternion.identity);
+            var egg = Instantiate(poofPrefab, other.transform.position, Quaternion.identity);
             AudioManager.PlaySound("EggCollect");
             EggCollectionManager.Instance.SpawnEggPuff(egg);
             Destroy(other.gameObject);
