@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
 
     private float _rotation = 0f;
     
+    private Coroutine _playWooshSound;
+    private bool _isWooshPlaying = false;
+    
     private void Start()
     {
 //         if (!handPivot)
@@ -36,12 +40,14 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             _rotation = 0f;
+            TryPlayWoosh();
             //move = -1f;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             _rotation = 180f;
+            TryPlayWoosh();
             //move = 1f;
         }
 
@@ -58,6 +64,7 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = wolfHighSprite;
             boxCollider2DHigh.gameObject.SetActive(true);
             boxCollider2DLow.gameObject.SetActive(false);
+            TryPlayWoosh();
         }
         
         if (Input.GetKey(KeyCode.S))
@@ -65,8 +72,23 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = wolfLowSprite;
             boxCollider2DLow.gameObject.SetActive(true);
             boxCollider2DHigh.gameObject.SetActive(false);
+            TryPlayWoosh();
         }
         //
         // handPivot.localRotation = Quaternion.Euler(0, 0, handRot);
+    }
+    
+    private void TryPlayWoosh()
+    {
+        if (!_isWooshPlaying)
+            _playWooshSound = StartCoroutine(PlayWooshSound());
+    }
+    
+    private IEnumerator PlayWooshSound()
+    {
+        _isWooshPlaying  = true;
+        AudioManager.PlaySound("EggWoosh");
+        yield return new WaitForSeconds(0.45f);
+        _isWooshPlaying  = false;
     }
 }

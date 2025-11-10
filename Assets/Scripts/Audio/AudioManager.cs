@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        StopAllSounds();
+        //StopAllSounds();
 
         GameObject soundObj = GameObject.Find(soundName);
         
