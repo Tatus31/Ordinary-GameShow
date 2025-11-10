@@ -25,16 +25,16 @@ public class TargetMover : MonoBehaviour
     private float _currentMoveDuration;
     private float _currentScaleDuration;
     
-    private static float _globalMoveDurationBonus = 0f;
-    private static float _globalScaleDurationBonus = 0f;
+    private static float GlobalMoveDurationBonus = 0f;
+    private static float GlobalScaleDurationBonus = 0f;
 
     public void StartMoving()
     {
-        _currentMoveDuration = Mathf.Max(minMoveDuration, moveDuration - _globalMoveDurationBonus);
-        _currentScaleDuration = Mathf.Max(minScaleDuration, scaleDuration - _globalScaleDurationBonus);
+        _currentMoveDuration = Mathf.Max(minMoveDuration, moveDuration - GlobalMoveDurationBonus);
+        _currentScaleDuration = Mathf.Max(minScaleDuration, scaleDuration - GlobalScaleDurationBonus);
         
         Debug.Log("Next target durations => Move: " + _currentMoveDuration + ", Scale: " + _currentScaleDuration);
-        Debug.Log($"Next target globalMoveDurationBonus => {_globalMoveDurationBonus} , ScaleDurationBonus => {_globalScaleDurationBonus}");
+        Debug.Log($"Next target globalMoveDurationBonus => {GlobalMoveDurationBonus} , ScaleDurationBonus => {GlobalScaleDurationBonus}");
         
         StartCoroutine(SpawnAndAnimateTarget());
     }
@@ -97,8 +97,8 @@ public class TargetMover : MonoBehaviour
 
     public void SpeedUpTarget()
     {
-        _globalMoveDurationBonus += moveDurationDecrease;
-        _globalScaleDurationBonus += scaleDurationDecrease;
+        GlobalMoveDurationBonus += moveDurationDecrease;
+        GlobalScaleDurationBonus += scaleDurationDecrease;
     }
     
     private void OnDrawGizmos()

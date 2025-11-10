@@ -21,11 +21,14 @@ public class EggCollectionManager : MonoBehaviour
 
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
-            sr.color = new Color(color.r, color.g, color.b, alpha);
+            if (sr)
+            {
+                elapsed += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
+                sr.color = new Color(color.r, color.g, color.b, alpha);
             
-            yield return null; 
+                yield return null; 
+            }
         }
 
         sr.color = new Color(color.r, color.g, color.b, 0f);
