@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggSpawner: {fileID: 1693447001}
-  PoofPrefab: {fileID: 7437282794737575584, guid: d67e275957fd4804a84b7825ecb6916d, type: 3}
+  poofPrefab: {fileID: 7437282794737575584, guid: d67e275957fd4804a84b7825ecb6916d, type: 3}
 --- !u!1 &1693446999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggSpawner: {fileID: 1693447001}
-  PoofPrefab: {fileID: 7437282794737575584, guid: d67e275957fd4804a84b7825ecb6916d, type: 3}
+  poofPrefab: {fileID: 7437282794737575584, guid: d67e275957fd4804a84b7825ecb6916d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

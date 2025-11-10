@@ -39,8 +39,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueBox _currentDialogueBox;
     
     private Coroutine _forceNextDialogueRoutine;
-    
-    public bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
+
+    private bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || QuizManager.IsAnsweringQuestions || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
 
     public bool IsCameraBlending => cinemachineBrain && cinemachineBrain.IsBlending;
     
@@ -111,12 +111,14 @@ public class DialogueManager : MonoBehaviour
             {
                 if(_currentDialogueBox == null || _currentDialogueBox.isForcedToNextDialogue)
                     return;
-                
+
                 typeWriter.SkipTyping(() =>
                 {
                     _currentDialogueBox?.OnDialogueComplete?.Invoke();
                     _forceNextDialogueRoutine = StartCoroutine(ForceNextDialogue());
-                });
+                }
+                    , dialogueBoxText);
+                
             }
             else
             {
@@ -250,7 +252,7 @@ public class DialogueManager : MonoBehaviour
             yield break;
         }
         
-        typeWriter.StartTyping(dialogueBranch.DialogueText, () =>
+        typeWriter.StartTyping(dialogueBoxText, dialogueBranch.DialogueText, () =>
         {
             dialogueBox.OnDialogueComplete?.Invoke();
             

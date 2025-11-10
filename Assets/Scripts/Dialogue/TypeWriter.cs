@@ -30,7 +30,7 @@ public class TypeWriter : MonoBehaviour
             typingText  = GetComponent<TextMeshProUGUI>();
     }
 
-    public void StartTyping(string text, Action onComplete = null)
+    public void StartTyping(TextMeshProUGUI textArea, string text, Action onComplete = null)
     {
         if (_typingCoroutine != null)
         {
@@ -38,36 +38,79 @@ public class TypeWriter : MonoBehaviour
         }
 
         _text = text;
-        _typingCoroutine = StartCoroutine(TypingCoroutine(onComplete));
+        _typingCoroutine = StartCoroutine(TypingCoroutine(onComplete, textArea));
+    }
+    
+    public void StartTypingMultiple(TextMeshProUGUI[] textAreas, string[] texts, Action onComplete = null)
+    {
+        if (textAreas == null || texts == null || textAreas.Length != texts.Length)
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning("Text areas missing");
+#endif
+            return;
+        }
+
+        StartCoroutine(TypingMultipleCoroutine(textAreas, texts, onComplete));
     }
 
-    public void SkipTyping(Action onComplete)
+    public void SkipTyping(Action onComplete, TextMeshProUGUI textArea)
     {
         if (_isTyping)
         {
             StopCoroutine(_typingCoroutine);
-            typingText.text = _text;
+            textArea.text = _text;
             _isTyping = false;
             
             onComplete?.Invoke();
         }
     }
 
-    private IEnumerator TypingCoroutine(Action onComplete)
+    private IEnumerator TypingCoroutine(Action onComplete, TextMeshProUGUI textArea)
     {
         _isTyping = true;
-        typingText.text = "";
+        textArea.text = "";
         
         foreach (char c in _text)
         {
-            typingText.text += c;
+            textArea.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
         
         _isTyping = false;
-        
-        yield return new WaitUntil(() => !_isTyping);
-        
         onComplete?.Invoke();
     } 
+    
+    private IEnumerator TypingMultipleCoroutine(TextMeshProUGUI[] textAreas, string[] texts, Action onComplete)
+    {
+        _isTyping = true;
+
+        foreach (var textArea in textAreas)
+        {
+            textArea.text = "";
+        }
+
+        int maxLength = 0;
+
+        foreach (var t in texts)
+        {
+            maxLength = Mathf.Max(maxLength, t.Length);
+        }
+
+        for (int i = 0; i < maxLength; i++)
+        {
+            for (int j = 0; j < textAreas.Length; j++)
+            {
+                if (i < texts[j].Length)
+                {
+                    textAreas[j].text += texts[j][i];
+                }
+            }
+
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        _isTyping = false;
+        onComplete?.Invoke();
+    }
 }
