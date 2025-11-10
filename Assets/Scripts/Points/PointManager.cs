@@ -41,18 +41,18 @@ public class PointManager : MonoBehaviour
     public void AddPoints(int points)
     {
         currentPoints += points;
-        ChangePointsText(points);
+        ChangePointsText();
     }
     
     public void RemovePoints(int points)
     {
         currentPoints -= points;
-        ChangePointsText(points);
+        ChangePointsText();
     }
     
-    public void ChangePointsText(int points)
+    public void ChangePointsText()
     {
-        pointsText.text = points.ToString();
+        pointsText.text = currentPoints.ToString();
     }
 
     public void EvaluatePointState(int points)

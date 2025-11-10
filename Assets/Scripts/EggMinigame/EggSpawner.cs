@@ -67,7 +67,10 @@ public class EggSpawner : MonoBehaviour
             else
             {
                 foreach (var egg in _activeEggs)
-                    Destroy(egg);
+                {
+                    EggCollectionManager.Instance.SpawnEggPuff(egg);
+                }
+
 
                 _activeEggs.RemoveAll(egg => !egg);
             }

@@ -5,22 +5,21 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
 
+[Serializable]
+public class DialogueBox
+{
+    public DialogueBoxSO[] Dialogues;
+    public CinemachineCamera Camera;
+    public bool isForcedToNextDialogue;
+    public Sprite Sprite;
+    [Range(0, 60)]
+    public float timeToNextDialogue;
+    [Space(5)]
+    public UnityEvent OnDialogueComplete;
+}
 
 public class DialogueManager : MonoBehaviour
 {
-    [Serializable]
-    private class DialogueBox
-    {
-        public DialogueBoxSO[] Dialogues;
-        public CinemachineCamera Camera;
-        public bool isForcedToNextDialogue;
-        public Sprite Sprite;
-        [Range(0, 60)]
-        public float timeToNextDialogue;
-        [Space(5)]
-        public UnityEvent OnDialogueComplete;
-    }
-    
     [SerializeField] private DialogueBox[] dialogueBoxes;
     [Space(10f)]
     [Header("Script Refrences")]
@@ -30,13 +29,18 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private CinemachineBrain cinemachineBrain;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private CinemachineCamera startingCamera;
+    [Header("Click Cooldown")]
+    [SerializeField] private float clickCooldown = 0.3f;
 
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
+    private float _lastClickTime = -Mathf.Infinity;
     
     private DialogueBox _currentDialogueBox;
     
     private Coroutine _forceNextDialogueRoutine;
+    
+    public bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
 
     public bool IsCameraBlending => cinemachineBrain && cinemachineBrain.IsBlending;
     
@@ -86,13 +90,28 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(NameSelection.IsTypingName)
+        if (IsDialogueBlocked)
+        {
+            if (NameSelection.IsTypingName)
+                Debug.Log($"blocked by typing {_currentDialogueBox?.Camera.name} NameSelection.IsTypingName: {NameSelection.IsTypingName}");
+            else if (IsCameraBlending)
+                Debug.Log($"blocked by blending {_currentDialogueBox?.Camera.name}");
+        
             return;
+        }
         
         if (Input.GetButtonDown("Fire1"))
         {
+            if (Time.time - _lastClickTime < clickCooldown)
+                return;
+            
+            _lastClickTime = Time.time;
+            
             if (typeWriter.IsTyping)
             {
+                if(_currentDialogueBox == null || _currentDialogueBox.isForcedToNextDialogue)
+                    return;
+                
                 typeWriter.SkipTyping(() =>
                 {
                     _currentDialogueBox?.OnDialogueComplete?.Invoke();
@@ -108,7 +127,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartNextDialogue()
     {
-        if(_isDialogueChanging)
+        if(_isDialogueChanging || IsCameraBlending)
             return;
         
         StartCoroutine(StartNextDialogueRoutine());
@@ -203,6 +222,10 @@ public class DialogueManager : MonoBehaviour
         if (_currentDialogueBox != null && _currentDialogueBox.isForcedToNextDialogue)
         {
             yield return new WaitForSeconds(_currentDialogueBox.timeToNextDialogue);
+            
+            while (IsCameraBlending)
+                yield return null;
+            
             StartNextDialogue();
         }
     }
@@ -221,7 +244,9 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueBranch == null)
         {
+#if UNITY_EDITOR
             Debug.LogWarning("Dialogue Box doesn't have a Dialogue Branch");
+#endif
             yield break;
         }
         
@@ -237,27 +262,37 @@ public class DialogueManager : MonoBehaviour
     private BranchingDialogue GetBranchDialogue(DialogueBoxSO[] dialogues)
     {
         BranchingDialogue fallbackDialogue = null;
-        
+    
         foreach (var dialogue in dialogues)
         {
             foreach (var branch in dialogue.dialogueBoxes)
             {
-                if (string.IsNullOrEmpty(branch.BranchKey))
+                if (string.IsNullOrEmpty(branch.BranchKey) && fallbackDialogue == null)
                 {
-                    if (fallbackDialogue == null)
-                    {
-                        fallbackDialogue = branch;
-                        continue;
-                    }
+                    fallbackDialogue = branch;
                 }
-                
-                bool currentBranchValue = DialogueBranchManager.Instance.GetBranch(branch.BranchKey);
-                
-                if (currentBranchValue == branch.IsExpectedToBranch)
-                    return branch;
+            
+                if (!string.IsNullOrEmpty(branch.BranchKey))
+                {
+                    bool currentBranchValue = DialogueBranchManager.Instance.GetBranch(branch.BranchKey);
+                    if (currentBranchValue == branch.IsExpectedToBranch)
+                        return branch;
+                }
             }
         }
-        
-        return fallbackDialogue;
+
+        if (fallbackDialogue != null)
+            return fallbackDialogue;
+
+        foreach (var dialogue in dialogues)
+        {
+            if (dialogue.dialogueBoxes.Length > 0)
+            {
+                return dialogue.dialogueBoxes[0];
+            }
+
+        }
+
+        return null; 
     }
 }
