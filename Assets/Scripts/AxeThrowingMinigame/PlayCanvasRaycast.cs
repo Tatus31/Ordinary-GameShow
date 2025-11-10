@@ -2,19 +2,18 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI; // Needed if using UI elements
+using UnityEngine.UI; 
 
-[RequireComponent(typeof(Canvas))]
-public class AxeRaycast : MonoBehaviour
+public class PlayCanvasRaycast : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera uiCamera;
     [SerializeField] private RectTransform canvasRect;
     [SerializeField] private GameObject hoverObject;
-    [SerializeField] private GameObject axeHitObject;
 
     [Header("Settings")]
     [SerializeField] private float distanceFromCanvas = 0.01f;
+    [SerializeField] private bool isForWacamole;
 
     [Header("Points")] [SerializeField] private int points;
     
@@ -38,11 +37,23 @@ public class AxeRaycast : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-                GameObject hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, "Target");
+                GameObject hitObject;
+                    
+                if(isForWacamole)
+                    hitObject  = GetObjectUnderMouse(canvasRect,Input.mousePosition, "Mole");
+                else
+                    hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, "Target");
                 
-                if (hitObject)
+                if(!hitObject)
+                    return;
+                
+                if (!isForWacamole)
                 {
                     StartCoroutine(HitCooldown(0.3f, hitObject));
+                }
+                else if (isForWacamole)
+                {
+                    StartCoroutine(HitWacamole(0.3f, hitObject));
                 }
             }
         }
@@ -99,5 +110,23 @@ public class AxeRaycast : MonoBehaviour
             Destroy(hitObject);
             PointManager.Instance.AddPoints(points);
         }
+    }
+    
+    private IEnumerator HitWacamole(float seconds, GameObject hitObject)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        if (!hitObject)
+            yield break;
+        
+        var moleArea = hitObject.GetComponent<MoleArea>();
+            
+        if (moleArea.IsActive)
+        {
+            Debug.Log("Hit wacamole");
+            PointManager.Instance.AddPoints(points);
+            moleArea.IsActive = false;
+        }
+
     }
 }
