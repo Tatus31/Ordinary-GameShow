@@ -12,12 +12,13 @@ public class EggHitsGround : MonoBehaviour
         {
             var eggPoints = other.gameObject.GetComponent<Egg>().EggPoints;
             
-            PointManager.Instance.AddPoints(eggPoints);
+            PointManager.Instance.RemovePoints(eggPoints);
             PointManager.Instance.ChangePointsText();
             
             eggSpawner.RemoveEggFromList(other.gameObject);
             var egg = Instantiate(eggSplatObj, other.transform.position, Quaternion.identity);
             StartCoroutine(SpawnEggSplat(egg));
+            AudioManager.PlaySound("EggSplat");
             Destroy(other.gameObject);
         }
     }
