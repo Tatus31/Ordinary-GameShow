@@ -45,6 +45,18 @@ public class AudianceManager : MonoBehaviour
         }
     }
 
+    public void EvaluateToBooOrToChher(float duration)
+    {
+        if (PointManager.Instance.IsScorePassable)
+        {
+            SetAudianceToCheer(duration);
+        }
+        else
+        {
+            SetAudianceToBoo(duration);
+        }
+    }
+
     public void SetAudianceToNeutral(float duration)
     {
         ChangeAllSprites(audianceNeutralSprite);

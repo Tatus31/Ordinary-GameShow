@@ -3120,9 +3120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bd2e6b2761fe54aafb42ade96b5d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
-  maxPoints: 300
-  minPoints: 50
+  currentPointsData: {fileID: 11400000, guid: a5ea28e18161ae7459a572e7f54ec694, type: 2}
   pointsText: {fileID: 1219116683}
 --- !u!4 &1961686248
 Transform:

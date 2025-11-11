@@ -3,12 +3,24 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum LastScene
+{
+    GameShowScene,
+    EggMinigameScene,
+    AxeThrowingMinigameScene,
+    WacamoleMInigameScene,
+    QuizMinigameScene,
+    WhereIsWaldoMinigame
+}
+
 public class SceneController : MonoBehaviour
 {   
     [SerializeField] private GameObject curtainObj;
     [SerializeField] private Animator  animator;
     [SerializeField] private float transitionDuration = 1f;
     [SerializeField] private bool shouldPersist;
+    
+    public static LastScene LastScene;
     
     public static SceneController Instance;
 
@@ -41,7 +53,9 @@ public class SceneController : MonoBehaviour
 #endif
             return;
         }
-
+#if UNITY_EDITOR
+        Debug.Log("Prewarmed scene " + sceneName);
+#endif
         StartCoroutine(PrewarmSceneCoroutine(sceneName));
     }
 
@@ -59,7 +73,19 @@ public class SceneController : MonoBehaviour
     }
 
     public void LoadSceneWithTransition()
-    {
+    {    
+        Scene currentScene = SceneManager.GetActiveScene();
+        try
+        {
+            LastScene = (LastScene)Enum.Parse(typeof(LastScene), currentScene.name);
+        }
+        catch
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning("Current scene is not in LastScene enum: " + currentScene.name);
+#endif
+        }
+        
         curtainObj.SetActive(true);
         StartCoroutine(LoadSceneWithTransitionCoroutine());
     }
@@ -79,6 +105,7 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(transitionDuration);
         
         curtainObj.SetActive(false);
+        _loadSceneOperation = null; 
     }
     
     private IEnumerator PrewarmSceneCoroutine(string sceneName)
@@ -94,9 +121,5 @@ public class SceneController : MonoBehaviour
                 yield return null;
             }
         }
-
-#if UNITY_EDITOR
-        Debug.Log("Prewarmed scene " + sceneName);
-#endif
     }
 }

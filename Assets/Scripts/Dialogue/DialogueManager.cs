@@ -37,12 +37,13 @@ public class DialogueManager : MonoBehaviour
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
     private float _lastClickTime = -Mathf.Infinity;
+    private bool _isWaitingToFinishMinigame = false;
     
     private DialogueBox _currentDialogueBox;
     
     private Coroutine _forceNextDialogueRoutine;
 
-    private bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || QuizManager.IsAnsweringQuestions || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
+    private bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || QuizManager.IsAnsweringQuestions || _isWaitingToFinishMinigame || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
 
     public bool IsCameraBlending => cinemachineBrain && cinemachineBrain.IsBlending;
     
@@ -129,6 +130,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void IsWaitingToFinishMinigame(bool isWaiting)
+    {
+        _isWaitingToFinishMinigame = isWaiting;
+    }
+    
     public void StartNextDialogue()
     {
         if(_isDialogueChanging || IsCameraBlending)
@@ -273,6 +279,7 @@ public class DialogueManager : MonoBehaviour
         {
             foreach (var branch in dialogue.dialogueBoxes)
             {
+                Debug.Log($"Checking branch: '{branch.BranchKey}' expects {branch.IsExpectedToBranch} | Current value: {DialogueBranchManager.Instance.GetBranch(branch.BranchKey)}");
                 if (string.IsNullOrEmpty(branch.BranchKey) && fallbackDialogue == null)
                 {
                     fallbackDialogue = branch;
@@ -282,13 +289,21 @@ public class DialogueManager : MonoBehaviour
                 {
                     bool currentBranchValue = DialogueBranchManager.Instance.GetBranch(branch.BranchKey);
                     if (currentBranchValue == branch.IsExpectedToBranch)
+                    {
+                        Debug.Log("using correct branch: " + branch.BranchKey);
                         return branch;
+                    }
+
                 }
             }
         }
 
         if (fallbackDialogue != null)
+        {
+            Debug.Log("using fallback" + fallbackDialogue.BranchKey);
             return fallbackDialogue;
+        }
+
 
         foreach (var dialogue in dialogues)
         {

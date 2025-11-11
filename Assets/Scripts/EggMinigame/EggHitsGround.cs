@@ -1,11 +1,21 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class EggHitsGround : MonoBehaviour
 {
+    public static Action<int> OnEggDestroyed;
+    
     [SerializeField] private EggSpawner eggSpawner;
     [SerializeField] private GameObject eggSplatObj;
     
+    private int _eggsDestroyed = 0;
+
+    private void Start()
+    {
+        _eggsDestroyed = 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Egg"))
@@ -20,6 +30,9 @@ public class EggHitsGround : MonoBehaviour
             StartCoroutine(SpawnEggSplat(egg));
             AudioManager.PlaySoundWithRandomPitch("EggSplat");
             Destroy(other.gameObject);
+
+            _eggsDestroyed++;
+            OnEggDestroyed?.Invoke(_eggsDestroyed);
         }
     }
     

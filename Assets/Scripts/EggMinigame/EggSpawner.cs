@@ -148,6 +148,16 @@ public class EggSpawner : MonoBehaviour
         _activeEggs.Remove(egg);
     }
 
+    public void DestroyAllEggs()
+    {
+        foreach (var egg in _activeEggs)
+        {
+            Destroy(egg);
+        }
+        
+        _activeEggs.RemoveAll(egg => !egg);
+    }
+
     private void OnDisable()
     {
         _isSpawning = false;
