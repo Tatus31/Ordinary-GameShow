@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56fea473ea6f934a82db0df03f52d5d, type: 3}
-  m_Name: A
+  m_Name: QuizFacts_Whale
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: the right answer A
+  - DialogueText: The blue whale can reach up to 30.5 meters, that's almost as big
+      as your [REDACTED]!
     BranchKey: 
     IsExpectedToBranch: 0
-  IsTheRightAnswer: 1
+  IsTheRightAnswer: 0

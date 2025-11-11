@@ -64,8 +64,19 @@ public class QuizManager : MonoBehaviour
     {
         DialogueBranchManager.Instance.SetBranch("Correct", isRightAnswer);
         DialogueBranchManager.Instance.SetBranch("Wrong", !isRightAnswer);
+
+        PlayChoiceSound(isRightAnswer);
+        
         dialogueManager.StartNextDialogue();
         StartFadeOut();
+    }
+
+    private void PlayChoiceSound(bool isRightAnswer)
+    {
+        if (isRightAnswer)
+            AudioManager.PlaySound("Correct_AnswerAudio");
+        else
+            AudioManager.PlaySound("Incorrect_AnswerAudio");
     }
 
     private void StartFadeOut()

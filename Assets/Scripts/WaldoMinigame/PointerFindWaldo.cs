@@ -4,20 +4,42 @@ using UnityEngine;
 
 public class PointerFindWaldo : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private string sceneName;
+    
+    private bool isRightAnswer = false;
+
+    private void Start()
     {
-        if (other.CompareTag("Waldo"))
-        {
-            Debug.Log("Waldo");
-        }
+        if (SceneController.Instance)
+            SceneController.Instance.PrewarmScene(sceneName);
+        else
+            Debug.Log("there is no SceneController.Instance");
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Waldo"))
         {
-            //other.gameObject.GetComponent<SpriteRenderer>().sprite;
+            isRightAnswer  = true;
             Debug.Log("Waldo");
+        }
+    }
+
+    private void Update()
+    {
+        if (isRightAnswer && Input.GetButtonDown("Fire1"))
+        {
+            AudioManager.PlaySound("FoundVHS_Cheer");
+            isRightAnswer  = false;
+            LoadNextScene();
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (SceneController.Instance)
+        {
+            SceneController.Instance.LoadSceneWithTransition();
         }
     }
 }

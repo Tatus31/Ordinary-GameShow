@@ -17,6 +17,7 @@ public class PlayCanvasRaycast : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float distanceFromCanvas = 0.01f;
     [SerializeField] private bool isForWacamole;
+    [SerializeField] private bool isForAxe;
 
     [Header("Points")] 
     [SerializeField] private int points;
@@ -54,7 +55,9 @@ public class PlayCanvasRaycast : MonoBehaviour
                 }
                 else
                 {
-                    AudioManager.PlaySoundWithRandomPitch("Dart_ThrowSound");
+                    if(AudioManager.Instance && isForAxe)
+                        AudioManager.PlaySoundWithRandomPitch("Dart_ThrowSound");
+                    
                     hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Target", "Target_Red",  "Target_Golden"});
                 }
                 
@@ -132,7 +135,7 @@ public class PlayCanvasRaycast : MonoBehaviour
             Destroy(hitObject);
 
             if(hitObject.CompareTag("Target"))
-                PointManager.Instance.AddPoints(pointsForDuck);
+                PointManager.Instance.AddPoints(points);
             else if(hitObject.CompareTag("Target_Red"))
                 PointManager.Instance.AddPoints(pointsForRed);
             else if(hitObject.CompareTag("Target_Golden"))

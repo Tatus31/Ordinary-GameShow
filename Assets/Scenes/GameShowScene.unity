@@ -32,7 +32,7 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0.511
@@ -6165,6 +6165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPointsData: {fileID: 11400000, guid: a5ea28e18161ae7459a572e7f54ec694, type: 2}
   pointsText: {fileID: 1254057467}
+  dialogueManager: {fileID: 0}
+  _minPoints: 0
+  _maxPoints: 0
 --- !u!4 &1109130680
 Transform:
   m_ObjectHideFlags: 0
