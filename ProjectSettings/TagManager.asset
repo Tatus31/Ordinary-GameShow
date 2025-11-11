@@ -15,6 +15,7 @@ TagManager:
   - AnswerB
   - AnswerC
   - AnswerD
+  - Waldo
   layers:
   - Default
   - TransparentFX

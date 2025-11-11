@@ -114,8 +114,7 @@ public class PlayCanvasRaycast : MonoBehaviour
             var target = Instantiate(poofPrefab, hitObject.transform.position, Quaternion.identity);
             EggCollectionManager.Instance.SpawnEggPuff(target);
             Destroy(hitObject);
-            Debug.Log("Hit target");
-            
+
             if(hitObject.CompareTag("Target"))
                 PointManager.Instance.AddPoints(points);
             else if(hitObject.CompareTag("Target_Red"))
@@ -136,7 +135,6 @@ public class PlayCanvasRaycast : MonoBehaviour
             
         if (moleArea.IsActive)
         {
-            Debug.Log("Hit wacamole");
             moleArea.DuckSprite.sprite = moleArea.DuckHitSprite;
             PointManager.Instance.AddPoints(points);
             moleArea.IsActive = false;
