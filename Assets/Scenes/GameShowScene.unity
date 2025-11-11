@@ -6877,9 +6877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64045b1380677943be697553d034223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToControl: 
-  playDuration: 4
-  fadeDuration: 4
   playingSounds: []
 --- !u!1 &1321035253
 GameObject:
@@ -9886,8 +9883,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hello ;'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9d5204b97991b0d4ca01b9803afc3e85, type: 2}
-  m_sharedMaterial: {fileID: -4486524312858143321, guid: 9d5204b97991b0d4ca01b9803afc3e85, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab2777b9a10cc0e4b86e792cae38b14d, type: 2}
+  m_sharedMaterial: {fileID: -3989525336681592587, guid: ab2777b9a10cc0e4b86e792cae38b14d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
