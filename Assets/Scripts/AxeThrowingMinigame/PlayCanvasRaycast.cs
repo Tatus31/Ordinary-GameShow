@@ -43,11 +43,16 @@ public class PlayCanvasRaycast : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject hitObject;
-                    
-                if(isForWacamole)
+
+                if (isForWacamole)
+                {
                     hitObject  = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Mole"});
+                }
                 else
+                {
+                    AudioManager.PlaySoundWithRandomPitch("Dart_ThrowSound");
                     hitObject = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Target", "Target_Red",  "Target_Golden"});
+                }
                 
                 if(!hitObject)
                     return;
@@ -111,6 +116,8 @@ public class PlayCanvasRaycast : MonoBehaviour
         
         if (hitObject)
         {
+            AudioManager.PlaySoundWithRandomPitch("Dart_WoodBreakSound");
+            
             var target = Instantiate(poofPrefab, hitObject.transform.position, Quaternion.identity);
             EggCollectionManager.Instance.SpawnEggPuff(target);
             Destroy(hitObject);
@@ -126,6 +133,8 @@ public class PlayCanvasRaycast : MonoBehaviour
     
     private IEnumerator HitWacamole(float seconds, GameObject hitObject)
     {
+        AudioManager.PlaySoundWithRandomPitch("Duck_BonkAudio");
+        
         yield return new WaitForSeconds(seconds);
 
         if (!hitObject)

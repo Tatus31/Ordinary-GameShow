@@ -15,6 +15,8 @@ public class DialogueBox
     [Range(0, 60)]
     public float timeToNextDialogue;
     [Space(5)]
+    public UnityEvent OnVHSAudio;
+    [Space(5)]
     public UnityEvent OnDialogueComplete;
 }
 
@@ -242,7 +244,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
         
-        Debug.Log(dialogueBox.Dialogues[0].dialogueBoxes[0].DialogueText);
+        dialogueBox.OnVHSAudio?.Invoke();
+
         var dialogueBranch = GetBranchDialogue(dialogueBox.Dialogues);
 
         if (dialogueBranch == null)
