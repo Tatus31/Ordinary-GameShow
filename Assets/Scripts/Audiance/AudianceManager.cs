@@ -50,10 +50,18 @@ public class AudianceManager : MonoBehaviour
         if (PointManager.Instance.IsScorePassable)
         {
             SetAudianceToCheer(duration);
+            AudioManager.Instance.SetSoundToControl("AudianceAudioCheering");
+            AudioManager.Instance.SetPlayDuration(duration);
+            AudioManager.Instance.SetFadeDuration(duration);
+            AudioManager.Instance.UnmuteThenFadeOut();
         }
         else
         {
             SetAudianceToBoo(duration);
+            AudioManager.Instance.SetSoundToControl("AudianceAudioBooing");
+            AudioManager.Instance.SetPlayDuration(duration);
+            AudioManager.Instance.SetFadeDuration(duration);
+            AudioManager.Instance.UnmuteThenFadeOut();
         }
     }
 

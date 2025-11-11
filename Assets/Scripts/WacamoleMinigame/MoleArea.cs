@@ -14,6 +14,8 @@ public class MoleArea : MonoBehaviour
     [SerializeField] private float moveDuration = 1f; 
 
     private Vector3 _targetPosition;
+    
+    public bool WasHit { get; set; } = false;
 
     public bool IsActive
     {

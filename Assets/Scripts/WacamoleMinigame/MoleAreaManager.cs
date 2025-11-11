@@ -14,7 +14,9 @@ public class MoleAreaManager : MonoBehaviour
     [SerializeField] private float maxActivationTime = 1f;
     [Header("Activation Duration")]
     [SerializeField] private float activationTimeDecrease = 0.1f;
-    [SerializeField] private float maxMolesSpawned = 10f; 
+    [SerializeField] private float maxMolesSpawned = 10f;
+    [Header("Points")]
+    [SerializeField] private int points;
     
     private float _currentMinActivationTime;
     private float _currentMaxActivationTime;
@@ -54,11 +56,19 @@ public class MoleAreaManager : MonoBehaviour
                 randomIndex = Random.Range(0,  moleAreas.Count);
                 moleAreas[randomIndex].IsActive = true;
                 moleAreas[randomIndex].DuckSprite.sprite = moleAreas[randomIndex].NormalDuckSprite;
+                moleAreas[randomIndex].WasHit = false;
                 
                 molesSpawned++;
             } 
             
             yield return new WaitForSeconds(seconds);
+            
+            if (!moleAreas[randomIndex].WasHit)
+            {
+                PointManager.Instance.AddPoints(-points);
+                XActivation.Instance.ActivateX();
+            }
+            
             moleAreas[randomIndex].IsActive = false;
         }
     }

@@ -10,7 +10,9 @@ public enum LastScene
     AxeThrowingMinigameScene,
     WacamoleMInigameScene,
     QuizMinigameScene,
-    WhereIsWaldoMinigame
+    WhereIsWaldoMinigame,
+    GameShowSceneAfterAxeMinigame,
+    GameShowSceneAfterEggMinigame
 }
 
 public class SceneController : MonoBehaviour

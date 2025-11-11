@@ -40,4 +40,14 @@ public class TargetSpawnManager : MonoBehaviour
             yield return new WaitForSeconds(time);
         }
     }
+
+    public void DestroyAllTargets()
+    {
+        foreach (TargetMover target in targets)
+        {
+            Destroy(target.gameObject);
+        }
+        
+        targets.RemoveAll(t => !t);
+    }
 }

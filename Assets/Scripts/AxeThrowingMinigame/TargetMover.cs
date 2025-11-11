@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class TargetMover : MonoBehaviour
 {
+    public static event System.Action<int> OnTargetEscaped;
+    
     [Header("References")]
     [SerializeField] private RectTransform targetPrefab;
     [SerializeField] private RectTransform canvasRect;
@@ -27,6 +30,13 @@ public class TargetMover : MonoBehaviour
     
     private static float GlobalMoveDurationBonus = 0f;
     private static float GlobalScaleDurationBonus = 0f;
+    
+    private static int EscapedTargetCount = 0;
+
+    private void Start()
+    {
+        EscapedTargetCount = 0;
+    }
 
     public void StartMoving()
     {
@@ -36,7 +46,8 @@ public class TargetMover : MonoBehaviour
         Debug.Log("Next target durations => Move: " + _currentMoveDuration + ", Scale: " + _currentScaleDuration);
         Debug.Log($"Next target globalMoveDurationBonus => {GlobalMoveDurationBonus} , ScaleDurationBonus => {GlobalScaleDurationBonus}");
         
-        StartCoroutine(SpawnAndAnimateTarget());
+        if(this)
+            StartCoroutine(SpawnAndAnimateTarget());
     }
 
     private IEnumerator SpawnAndAnimateTarget()
@@ -90,8 +101,17 @@ public class TargetMover : MonoBehaviour
             yield return null;
         }
 
-        if (targetInstance) 
+        if (targetInstance)
+        {
+            if (!targetInstance.CompareTag("Target_Red"))
+            {
+                EscapedTargetCount++;
+                OnTargetEscaped?.Invoke(EscapedTargetCount);
+                XActivation.Instance.ActivateX();
+            }
+            
             Destroy(targetInstance.gameObject);
+        } 
     }
 
 

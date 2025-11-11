@@ -15,8 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/EggMinigameScene.unity
     guid: 6151002aa5d45f44b8249742415e6f06
   - enabled: 1
+    path: Assets/Scenes/GameShowSceneAfterEggMinigame.unity
+    guid: 8269c0653f1d8f841b2afbb7e9c197b7
+  - enabled: 1
     path: Assets/Scenes/AxeThrowingMinigameScene.unity
     guid: ce15e54fd9d9caf4695bedd31a2a12f1
+  - enabled: 1
+    path: Assets/Scenes/GameShowSceneAfterAxeMinigame.unity
+    guid: 4e7bd9e2c8c401149815eaa689c0cb15
   - enabled: 1
     path: Assets/Scenes/WacamoleMInigameScene.unity
     guid: c43466ec4c8313c4a932c39967dda17a

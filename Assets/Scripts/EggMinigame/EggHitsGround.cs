@@ -32,6 +32,7 @@ public class EggHitsGround : MonoBehaviour
             Destroy(other.gameObject);
 
             _eggsDestroyed++;
+            XActivation.Instance.ActivateX();
             OnEggDestroyed?.Invoke(_eggsDestroyed);
         }
     }

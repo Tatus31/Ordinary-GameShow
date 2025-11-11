@@ -12,6 +12,7 @@ public class PlayCanvasRaycast : MonoBehaviour
     [SerializeField] private RectTransform canvasRect;
     [SerializeField] private GameObject hoverObject;
     [SerializeField] private GameObject poofPrefab;
+    [SerializeField] private Animator hammerAnimator;
 
     [Header("Settings")]
     [SerializeField] private float distanceFromCanvas = 0.01f;
@@ -19,6 +20,7 @@ public class PlayCanvasRaycast : MonoBehaviour
 
     [Header("Points")] 
     [SerializeField] private int points;
+    [SerializeField] private int pointsForDuck;
     [SerializeField] private int pointsForRed;
     [SerializeField] private int pointsForGolden;
     
@@ -47,6 +49,8 @@ public class PlayCanvasRaycast : MonoBehaviour
                 if (isForWacamole)
                 {
                     hitObject  = GetObjectUnderMouse(canvasRect,Input.mousePosition, new []{"Mole"});
+                    hammerAnimator.SetBool("onHit", true);
+                    Invoke(nameof(CancelSwing), 0.1f);
                 }
                 else
                 {
@@ -67,6 +71,11 @@ public class PlayCanvasRaycast : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void CancelSwing()
+    {
+        hammerAnimator.SetBool("onHit", false);
     }
 
     private Vector3? GetMouseHitPointOnCanvas()
@@ -123,7 +132,7 @@ public class PlayCanvasRaycast : MonoBehaviour
             Destroy(hitObject);
 
             if(hitObject.CompareTag("Target"))
-                PointManager.Instance.AddPoints(points);
+                PointManager.Instance.AddPoints(pointsForDuck);
             else if(hitObject.CompareTag("Target_Red"))
                 PointManager.Instance.AddPoints(pointsForRed);
             else if(hitObject.CompareTag("Target_Golden"))
@@ -133,20 +142,27 @@ public class PlayCanvasRaycast : MonoBehaviour
     
     private IEnumerator HitWacamole(float seconds, GameObject hitObject)
     {
-        AudioManager.PlaySoundWithRandomPitch("Duck_BonkAudio");
-        
         yield return new WaitForSeconds(seconds);
 
+        CancelSwing();
+        
         if (!hitObject)
             yield break;
         
         var moleArea = hitObject.GetComponent<MoleArea>();
             
         if (moleArea.IsActive)
-        {
+        {       
+            AudioManager.PlaySoundWithRandomPitch("Duck_BonkAudio");
+
+            moleArea.WasHit  = true;
             moleArea.DuckSprite.sprite = moleArea.DuckHitSprite;
             PointManager.Instance.AddPoints(points);
             moleArea.IsActive = false;
+        }
+        else
+        {
+            AudioManager.PlaySoundWithRandomPitch("BonkAudio");
         }
 
     }

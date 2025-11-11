@@ -150,6 +150,8 @@ public class EggSpawner : MonoBehaviour
 
     public void DestroyAllEggs()
     {
+        _isSpawning = false;
+        
         foreach (var egg in _activeEggs)
         {
             Destroy(egg);
