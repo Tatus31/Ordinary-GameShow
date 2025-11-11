@@ -45,9 +45,11 @@ public class Egg : MonoBehaviour
         _moveRoutine = StartCoroutine(MoveEggAfterDelay());
     }
 
-    public static void IncreaseGlobalEggSpeed(float speedIncrease = 0.3f, float delayDecrease = 0.1f)
+    public static void IncreaseGlobalEggSpeed(float maxSpeed, float speedIncrease = 0.3f, float delayDecrease = 0.1f)
     {
         _globalSpeedBonus += speedIncrease;
+        _globalSpeedBonus = Mathf.Min(_globalSpeedBonus, maxSpeed);
+        
         _globalDelayReduction += delayDecrease;
     }
 

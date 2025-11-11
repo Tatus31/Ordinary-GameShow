@@ -23,10 +23,13 @@ public class EggSpawner : MonoBehaviour
     [SerializeField] private float minSpawnDelay = 1f;
     [SerializeField] private float maxSpawnDelay = 3f;
     [SerializeField] private int maxActiveEggs = 10;
+    [SerializeField] private float maxSpeed = 20f;
 
     private float _spawnTimer;
     private int _eggPoints;
     private List<GameObject> _activeEggs = new List<GameObject>();
+    private bool _isSpawning = true;
+    private Coroutine _spawnRoutine;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class EggSpawner : MonoBehaviour
     private void Start()
     {
         _spawnTimer = spawnTimeCooldown;
-        StartCoroutine(SpawnEggs());
+        _spawnRoutine = StartCoroutine(SpawnEggs());
     }
 
     private void Update()
@@ -48,14 +51,11 @@ public class EggSpawner : MonoBehaviour
             _spawnTimer -= Time.deltaTime;
         else
             _spawnTimer = spawnTimeCooldown;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(SpawnEggs());
     }
 
     private IEnumerator SpawnEggs()
     {
-        while (true)
+        while (_isSpawning)
         {
             _activeEggs.RemoveAll(egg => !egg);
 
@@ -79,9 +79,10 @@ public class EggSpawner : MonoBehaviour
             {
                 float speedIncrease = 0.3f;
                 maxSpawnDelay -= speedIncrease;
-
+                maxSpawnDelay = Mathf.Max(0.5f, maxSpawnDelay - speedIncrease);
+                
                 foreach (var eggPrefab in eggPrefabs)
-                    Egg.IncreaseGlobalEggSpeed();
+                    Egg.IncreaseGlobalEggSpeed(maxSpeed);
 
                 _eggPoints = 0;
             }
@@ -145,6 +146,14 @@ public class EggSpawner : MonoBehaviour
     public void RemoveEggFromList(GameObject egg)
     {
         _activeEggs.Remove(egg);
+    }
+
+    private void OnDisable()
+    {
+        _isSpawning = false;
+        
+        if (_spawnRoutine != null)
+            StopCoroutine(_spawnRoutine);
     }
 
 #if UNITY_EDITOR

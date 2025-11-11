@@ -18,7 +18,7 @@ public class EggHitsGround : MonoBehaviour
             eggSpawner.RemoveEggFromList(other.gameObject);
             var egg = Instantiate(eggSplatObj, other.transform.position, Quaternion.identity);
             StartCoroutine(SpawnEggSplat(egg));
-            AudioManager.PlaySound("EggSplat");
+            AudioManager.PlaySoundWithRandomPitch("EggSplat");
             Destroy(other.gameObject);
         }
     }

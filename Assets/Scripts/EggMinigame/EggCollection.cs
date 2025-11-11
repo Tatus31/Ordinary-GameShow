@@ -18,7 +18,7 @@ public class EggCollection : MonoBehaviour
             
             eggSpawner.RemoveEggFromList(other.gameObject);
             var egg = Instantiate(poofPrefab, other.transform.position, Quaternion.identity);
-            AudioManager.PlaySound("EggCollect");
+            AudioManager.PlaySoundWithRandomPitch("EggCollect");
             EggCollectionManager.Instance.SpawnEggPuff(egg);
             Destroy(other.gameObject);
         }

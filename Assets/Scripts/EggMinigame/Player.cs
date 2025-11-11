@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
     private IEnumerator PlayWooshSound()
     {
         _isWooshPlaying  = true;
-        AudioManager.PlaySound("EggWoosh");
+        AudioManager.PlaySoundWithRandomPitch("EggWoosh");
         yield return new WaitForSeconds(0.45f);
         _isWooshPlaying  = false;
     }
