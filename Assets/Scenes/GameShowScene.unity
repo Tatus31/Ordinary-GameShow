@@ -820,6 +820,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &196795772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196795773}
+  - component: {fileID: 196795774}
+  m_Layer: 0
+  m_Name: VHS_Talk_Low
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &196795773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196795772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1363094381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &196795774
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196795772}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 429406068767753914, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5dd4c881f142ae94a894855b9f7644d0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5dd4c881f142ae94a894855b9f7644d0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 100
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &224371138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,6 +4021,71 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1001 &698826581
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3330090935188340247, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_Name
+      value: BackgroundStaticAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528915065790998283, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: Priority
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528915065790998283, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836321793066374712, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 286c22334c5e7ac439c2e61679e4f82e, type: 3}
 --- !u!1 &718870625
 GameObject:
   m_ObjectHideFlags: 0
@@ -6291,6 +6485,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1173681629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173681630}
+  - component: {fileID: 1173681631}
+  m_Layer: 0
+  m_Name: VHS_Talk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173681630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173681629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1363094381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1173681631
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173681629}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 429406068767753914, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a1359fed2be700e4eb5be4fc0a26dafd, type: 3}
+  m_Resource: {fileID: 8300000, guid: a1359fed2be700e4eb5be4fc0a26dafd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 100
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1182301893
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,9 +7200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64045b1380677943be697553d034223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToControl: 
-  playDuration: 4
-  fadeDuration: 4
   playingSounds: []
 --- !u!1 &1321035253
 GameObject:
@@ -7384,6 +7704,40 @@ Transform:
   - {fileID: 2134430359}
   - {fileID: 1150307035}
   m_Father: {fileID: 1446381308}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1363094380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363094381}
+  m_Layer: 0
+  m_Name: VHS_Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363094381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363094380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 196795773}
+  - {fileID: 1967187487}
+  - {fileID: 1173681630}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376816674
 GameObject:
@@ -9886,8 +10240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hello ;'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9d5204b97991b0d4ca01b9803afc3e85, type: 2}
-  m_sharedMaterial: {fileID: -4486524312858143321, guid: 9d5204b97991b0d4ca01b9803afc3e85, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab2777b9a10cc0e4b86e792cae38b14d, type: 2}
+  m_sharedMaterial: {fileID: -3989525336681592587, guid: ab2777b9a10cc0e4b86e792cae38b14d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10428,6 +10782,264 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1967187486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967187487}
+  - component: {fileID: 1967187488}
+  m_Layer: 0
+  m_Name: VHS_Talk_High
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967187487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967187486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1363094381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1967187488
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967187486}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 429406068767753914, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 79d18b2c00e5b32498bdc00e0e130361, type: 3}
+  m_Resource: {fileID: 8300000, guid: 79d18b2c00e5b32498bdc00e0e130361, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 100
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &1984964107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984964109}
+  - component: {fileID: 1984964108}
+  m_Layer: 0
+  m_Name: BackgroundMusicAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1984964108
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984964107}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3740530244892060741, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3ba41c71f2a797746a9073021de17818, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3ba41c71f2a797746a9073021de17818, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 150
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1984964109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984964107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1998955109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5935749258832804181, guid: b88a3d5a0d0c8854aba6b49aad11dfb9, type: 3}
@@ -10644,6 +11256,9 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
     timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10653,6 +11268,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10662,6 +11292,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10671,6 +11316,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10728,6 +11388,9 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10749,6 +11412,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10758,6 +11436,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10767,6 +11460,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_Low
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10788,6 +11496,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_Low
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10797,6 +11520,9 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10822,6 +11548,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
     timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10831,6 +11572,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10900,6 +11656,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -10921,6 +11692,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_Low
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10930,6 +11716,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10939,6 +11740,9 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10948,6 +11752,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10957,6 +11776,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_Low
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10966,6 +11800,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
@@ -10975,6 +11824,21 @@ MonoBehaviour:
     isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -11034,7 +11898,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 4
+            m_FloatArgument: 2
             m_StringArgument: AudianceAudioCheering
             m_BoolArgument: 0
           m_CallState: 2
@@ -11056,6 +11920,9 @@ MonoBehaviour:
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls:
@@ -11604,3 +12471,6 @@ SceneRoots:
   - {fileID: 173087136}
   - {fileID: 1214650035}
   - {fileID: 1605356513}
+  - {fileID: 698826581}
+  - {fileID: 1984964109}
+  - {fileID: 1363094381}

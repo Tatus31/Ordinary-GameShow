@@ -5,13 +5,16 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
+        
+    [SerializeField] private List<AudioSource> playingSounds = new List<AudioSource>();
+    
     private string _soundToControl;
     private float _playDuration = 4f;
     private float _fadeDuration = 4f;
 
-    [SerializeField] private List<AudioSource> playingSounds = new List<AudioSource>();
-
+    private float _minPitch = 0.9f;
+    private float _maxPitch = 1.1f;
+    
     private void Awake()
     {
         if (Instance && Instance != this)
@@ -79,6 +82,49 @@ public class AudioManager : MonoBehaviour
 #endif
         }
     }
+    
+    public static void PlaySoundWithRandomPitch(string soundName)
+    {
+        if (!Instance)
+        {
+#if UNITY_EDITOR
+            Debug.LogError("AudioManager instance is null. Cannot play sound.");
+#endif
+            return;
+        }
+
+        GameObject soundObj = GameObject.Find(soundName);
+
+        if (soundObj)
+        {
+            AudioSource audioSource = soundObj.GetComponent<AudioSource>();
+
+            if (audioSource)
+            {
+                float randomPitch = Random.Range(Instance._minPitch, Instance._maxPitch);
+                audioSource.pitch = randomPitch;
+                
+                audioSource.mute = false;
+                audioSource.Play();
+
+                if (!Instance.playingSounds.Contains(audioSource))
+                    Instance.playingSounds.Add(audioSource);
+            }
+            else
+            {
+#if UNITY_EDITOR
+                Debug.LogWarning($"No AudioSource component found on {soundName}");
+#endif
+            }
+        }
+        else
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning($"Sound object '{soundName}' not found in scene");
+#endif
+        }
+    }
+
 
     public static void StopAllSounds()
     {
