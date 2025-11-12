@@ -20,7 +20,7 @@ MonoBehaviour:
   MinPointsAxe: 200
   MaxPointsWacamole: 200
   MinPointsWacamole: 100
-  MaxPointsQuiz: 0
-  MinPointsQuiz: 0
+  MaxPointsQuiz: 200
+  MinPointsQuiz: 80
   MaxPointsWaldo: 0
   MinPointsWaldo: 0

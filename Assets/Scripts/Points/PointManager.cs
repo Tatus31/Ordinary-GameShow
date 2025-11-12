@@ -32,6 +32,12 @@ public class PointManager : MonoBehaviour
         get { return currentPointsData.CurrentPoints; }
     }
 
+    public int CurrentAllMinigamePoints
+    {
+        get { return currentPointsData.CurrentAllMinigamePoints; }
+        set { currentPointsData.CurrentAllMinigamePoints = value; }
+    }
+
     private void Awake()
     {
         if (!Instance)
@@ -123,7 +129,7 @@ public class PointManager : MonoBehaviour
         DialogueBranchManager.Instance.SetBranch("PointsNegative", belowMin);
 
 #if UNITY_EDITOR
-        Debug.Log($"EvaluatePointState() called — Passable: {_isScorePassable}, Points: {currentPointsData.CurrentPoints}");
+        Debug.Log($"Passable: {_isScorePassable} Points: {currentPointsData.CurrentPoints} AllPoints: {currentPointsData.CurrentAllMinigamePoints}");
 #endif
         
         if (dialogueManager)

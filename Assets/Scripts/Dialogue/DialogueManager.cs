@@ -94,14 +94,7 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (IsDialogueBlocked)
-        {
-            if (NameSelection.IsTypingName)
-                Debug.Log($"blocked by typing {_currentDialogueBox?.Camera.name} NameSelection.IsTypingName: {NameSelection.IsTypingName}");
-            else if (IsCameraBlending)
-                Debug.Log($"blocked by blending {_currentDialogueBox?.Camera.name}");
-        
             return;
-        }
         
         if (Input.GetButtonDown("Fire1"))
         {
@@ -279,7 +272,6 @@ public class DialogueManager : MonoBehaviour
         {
             foreach (var branch in dialogue.dialogueBoxes)
             {
-                Debug.Log($"Checking branch: '{branch.BranchKey}' expects {branch.IsExpectedToBranch} | Current value: {DialogueBranchManager.Instance.GetBranch(branch.BranchKey)}");
                 if (string.IsNullOrEmpty(branch.BranchKey) && fallbackDialogue == null)
                 {
                     fallbackDialogue = branch;
@@ -290,7 +282,6 @@ public class DialogueManager : MonoBehaviour
                     bool currentBranchValue = DialogueBranchManager.Instance.GetBranch(branch.BranchKey);
                     if (currentBranchValue == branch.IsExpectedToBranch)
                     {
-                        Debug.Log("using correct branch: " + branch.BranchKey);
                         return branch;
                     }
 
@@ -300,7 +291,6 @@ public class DialogueManager : MonoBehaviour
 
         if (fallbackDialogue != null)
         {
-            Debug.Log("using fallback" + fallbackDialogue.BranchKey);
             return fallbackDialogue;
         }
 
