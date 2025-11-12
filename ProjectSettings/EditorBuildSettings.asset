@@ -27,8 +27,17 @@ EditorBuildSettings:
     path: Assets/Scenes/WacamoleMInigameScene.unity
     guid: c43466ec4c8313c4a932c39967dda17a
   - enabled: 1
+    path: Assets/Scenes/GameShowSceneAfterWacamoleMinigame.unity
+    guid: 23deffe1991a9f241af2baa7f7b862e7
+  - enabled: 1
     path: Assets/Scenes/QuizMinigameScene.unity
     guid: 9ef2fb295aac619408b9cdf7fcd53179
+  - enabled: 1
+    path: Assets/Scenes/GameShowSceneAfterQuizMinigame.unity
+    guid: 8e6f9ca0e2b1c2e4290adc274d86913c
+  - enabled: 1
+    path: Assets/Scenes/WhereIsWaldoMinigame.unity
+    guid: 7090baa5e63baeb4b98e9e11f254a703
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 38a97d4f16e530044b12d9c21d92b757

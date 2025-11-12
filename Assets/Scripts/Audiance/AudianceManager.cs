@@ -16,6 +16,8 @@ public class AudianceManager : MonoBehaviour
     private SpriteRenderer[] _audianceSprites;
     
     private Coroutine _audianceAnimationCoroutine;
+
+    private bool _isQuizRightAnswer;
     
     private static readonly int IsCheer = Animator.StringToHash("IsCheer");
     private static readonly int IsNeutral = Animator.StringToHash("IsNeutral");
@@ -43,11 +45,18 @@ public class AudianceManager : MonoBehaviour
         {
             audianceAnimator = transform.GetComponent<Animator>();
         }
+
+        QuizManager.OnQuizAnswered += QuizManager_OnQuizAnswered;
+    }
+
+    private void QuizManager_OnQuizAnswered(bool isRightAnswer)
+    {
+        _isQuizRightAnswer = isRightAnswer;
     }
 
     public void EvaluateToBooOrToChher(float duration)
     {
-        if (PointManager.Instance.IsScorePassable)
+        if (PointManager.Instance.IsScorePassable || _isQuizRightAnswer)
         {
             SetAudianceToCheer(duration);
             AudioManager.Instance.SetSoundToControl("AudianceAudioCheering");

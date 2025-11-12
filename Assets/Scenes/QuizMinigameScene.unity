@@ -1223,6 +1223,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607566292}
   m_CullTransparentMesh: 1
+--- !u!114 &608434984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8987137103633441713, guid: 799ea4a204951364184ff7709064d91a, type: 3}
+  m_PrefabInstance: {fileID: 325447530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4dbcfa79786364996c8a0f622472bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &711535591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,12 +1313,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
+  m_fontSize: 19.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1650,12 +1661,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.9
+  m_fontSize: 19.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2062,12 +2073,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.7
+  m_fontSize: 19.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2200,12 +2211,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.95
+  m_fontSize: 19.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5253,9 +5264,33 @@ MonoBehaviour:
             m_StringArgument: VHS_Talk
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Dialogues:
     - {fileID: 11400000, guid: 35c0c8e072ac2bd458263dc1076194a8, type: 2}
     Camera: {fileID: 3872608305529751522}
@@ -5295,6 +5330,915 @@ MonoBehaviour:
         - m_Target: {fileID: 8401515416178451425}
           m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
           m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 0ca539c174ef3af46846f315f8bd9e53, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 2714a8395b716554993384659a4256d3, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 2ec366af29a830b47b72a32d722f83cb, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 7bdb9d07f5364a0488fac5fd89aa6581, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 06175cac3b400234b94f27aa2bea0280, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ae5bd443b924f83448792588531a792f, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 8e30167b7a052cb45bfefd974853cae7, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 2557381d31b7a47418799ad8760c4dd0, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 7d198bdf63aca79438887e95fd703491, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8401515416178451425}
+          m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+          m_MethodName: StartQuiz
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
+    - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
+    Camera: {fileID: 6772472544797829712}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 1
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateToBooOrToChher
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5248694051297156929}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: c33bcf3d8151ae647a3a55e13d03da3c, type: 2}
+    Camera: {fileID: 3872608305529751522}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 608434984}
+          m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+          m_MethodName: PrewarmScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: GameShowSceneAfterQuizMinigame
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: ee975175cf527f04a94ad025fe528bcd, type: 2}
+    Camera: {fileID: 7850742775700978552}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 3.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 106943570588449719}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: a85c68a384e413740b630514d9c821a9, type: 2}
+    Camera: {fileID: 7545143386724126335}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 608434984}
+          m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+          m_MethodName: LoadSceneWithTransition
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12168,6 +13112,46 @@ MonoBehaviour:
     QuizAnswerB: {fileID: 11400000, guid: 8509820711c66be49a2c89e58c5e4440, type: 2}
     QuizAnswerC: {fileID: 11400000, guid: 20b9631d061dc864ea34592f9e12abb9, type: 2}
     QuizAnswerD: {fileID: 11400000, guid: dd7e70b975e269240b09975765863655, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: 78835e3f7e05e54418ea33dde4ca6cee, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: 2de0aaba488568045bc83645d879a557, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 3ee4fb17c1909144fb359491a4d2c031, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: c6e670a3fc5adc7409e4d871e6083096, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: fcc691414a0741245a96c671c7d277f5, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: 29b7e4bde6a77fb47bc5dd986a804fe1, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: ec5a69aeba37f3a4cb6e059b2583a85e, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 3ba0415789cc97043971fc57d4fb4dbd, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: 1f187217220f4ec459c94446656dec46, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: 256bd8b1f35a5d446a276e89384f6af5, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: f46916926078dee4ca3de65c4afb13c1, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: 79e24336dc0e79b4597c419c0f29652f, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: a1a4b599c98296e4ebfaabb06038d990, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: e3d7afe4136c6b448abd5004b5484717, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: 78d23ba3884c0c9488ab0d8d46c09314, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: 6e3af71915bf08e438371b6c0fb5849b, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: e580d4cefd7273e4cad8745723a353dd, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 45f29026c1953c94e819ab12dd67fe78, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: beaaf74145a5759498c5a627dafc2c10, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: d31bd5903b7da8f4bb164445bb60af5d, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: efb2c39e26d67b142b23dfc1e3a0ab3b, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: d11cbef6c67e06b438bbdb4bc7051fc7, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: f97235d1eff2f8841a420beef935a96d, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: 7accdff70d4ad684fbbd8bcba4fc565d, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: 18db7c111ee93804398c9b00dcee623e, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: 71cbbb9414cc24c4f85a1cb3ae1defa3, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: cd99e5099e8ff944bab91914477d1a48, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 5cf54a5b47f411d499c2a45385016627, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: 2c3b5ddea7af7c34cac40f4a21472790, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: 03336027acb8f6046873a82263728ebd, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: f1e3499da14f97b44aafe8fc603bdcbc, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: e5603a1beee5c664984c56deb4c7a75c, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: cbab37997461be44eaa818cb47d34865, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: ea081f08831689d448a086a633688127, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: b3a41161ca946fb4ea257faf9c72b23f, type: 2}
+  - QuizQuestion: {fileID: 11400000, guid: 859354432f23b9144a1467cd945189d5, type: 2}
+    QuizAnswerA: {fileID: 11400000, guid: 5b723b12c659a6b48bf6e2f9beea8c77, type: 2}
+    QuizAnswerB: {fileID: 11400000, guid: 2f5b9323b4ac9fc41a84192a70411047, type: 2}
+    QuizAnswerC: {fileID: 11400000, guid: f2afa5a43fb0fca4d8a812554e79c525, type: 2}
+    QuizAnswerD: {fileID: 11400000, guid: fb0a3cd63bfb4a248b640a03baf16d0e, type: 2}
   typeWriter: {fileID: 7935271767010175068}
   dialogueManager: {fileID: 2144979532658494360}
   quizQuestion: {fileID: 1072934560}

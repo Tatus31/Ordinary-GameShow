@@ -17,6 +17,8 @@ public class QuizManager : MonoBehaviour
         public DialogueBoxSO QuizAnswerD;
     }
     
+    public static event Action<bool> OnQuizAnswered;
+    
     [SerializeField] private RectTransform quizCanvGroup;
     [SerializeField] private QuizBox[] quizBoxes;
     [Header("Refrences")]
@@ -66,6 +68,7 @@ public class QuizManager : MonoBehaviour
         DialogueBranchManager.Instance.SetBranch("Wrong", !isRightAnswer);
 
         PlayChoiceSound(isRightAnswer);
+        OnQuizAnswered?.Invoke(isRightAnswer);
         
         dialogueManager.StartNextDialogue();
         StartFadeOut();
