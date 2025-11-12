@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuizFacts_Question3
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Here will be a fact about question 3
+  - DialogueText: You can now play as luigi
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

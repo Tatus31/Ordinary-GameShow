@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: D
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: the right anwser D
+  - DialogueText: red and black
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 1

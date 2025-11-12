@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuizFacts_Question2
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Here will be a fact about question 2
+  - DialogueText: The cake is a lie
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 10
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is the question now 10
+  - DialogueText: What is THE BEST game show ever!!?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 4
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is the question now 4
+  - DialogueText: Who owns the world?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

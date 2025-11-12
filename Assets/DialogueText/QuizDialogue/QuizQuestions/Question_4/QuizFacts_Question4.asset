@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuizFacts_Question4
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Here will be a fact about question 4
+  - DialogueText: She owns it, we are merely living in it.
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

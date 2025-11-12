@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: C
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: The wrong answer C
+  - DialogueText: Oridnary game show!
     BranchKey: 
     IsExpectedToBranch: 0
+  IsTheRightAnswer: 1

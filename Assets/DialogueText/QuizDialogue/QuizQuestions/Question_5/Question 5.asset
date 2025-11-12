@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 5
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is the question now 5
+  - DialogueText: What are our main colours for the show?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

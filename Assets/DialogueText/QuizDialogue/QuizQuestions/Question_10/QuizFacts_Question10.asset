@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: QuizFacts_Question10
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'Here will be a fact about question 10
-
-'
+  - DialogueText: The best!!! forever!!!
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

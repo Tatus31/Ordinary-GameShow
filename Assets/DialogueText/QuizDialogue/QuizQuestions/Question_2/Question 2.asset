@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 2
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is the question now 2
+  - DialogueText: What is a cake?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0
