@@ -15,10 +15,16 @@ public class PointManager : MonoBehaviour
     [SerializeField] private int _maxPoints;
 
     private bool _isScorePassable;
-
+    private bool _isScoreInTheMiddle;
+    
     public bool IsScorePassable
     {
         get { return _isScorePassable; }
+    }
+
+    public bool IsScoreInTheMiddle
+    {
+        get { return _isScoreInTheMiddle; }
     }
     
     public int CurrentPoints 
@@ -104,10 +110,13 @@ public class PointManager : MonoBehaviour
     {
         bool reachedMax = currentPointsData.CurrentPoints >= _maxPoints;
         bool belowMin = currentPointsData.CurrentPoints < _minPoints;
-        
         bool inMiddle = currentPointsData.CurrentPoints >= _minPoints && currentPointsData.CurrentPoints < _maxPoints;
         
-        _isScorePassable = inMiddle || reachedMax;
+        _isScorePassable = reachedMax;
+        _isScoreInTheMiddle =  inMiddle;
+
+        currentPointsData.CurrentAllMinigamePoints += currentPointsData.CurrentPoints;
+        currentPointsData.CurrentPoints = 0;
 
         DialogueBranchManager.Instance.SetBranch("PointsPositive", reachedMax);
         DialogueBranchManager.Instance.SetBranch("PointsNeutral", inMiddle);

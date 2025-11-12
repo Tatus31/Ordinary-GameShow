@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WhereIsWaldoMinigame.unity
     guid: 7090baa5e63baeb4b98e9e11f254a703
   - enabled: 1
+    path: Assets/Scenes/GameShowSceneAfterAllMinigames.unity
+    guid: adc1a88890687ef4da5ca0fe7c08e7f8
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 38a97d4f16e530044b12d9c21d92b757
   - enabled: 1

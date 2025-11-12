@@ -871,7 +871,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 100
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5053,6 +5053,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &884896385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884896386}
+  - component: {fileID: 884896387}
+  m_Layer: 0
+  m_Name: LookingAtVHSCloseUpCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884896386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884896385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.01678833, y: 0.36118612, z: -0.0064913565, w: 0.93232006}
+  m_LocalPosition: {x: 1.218, y: 1.767, z: -0.049}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1214650035}
+  m_LocalEulerAnglesHint: {x: 6.803, y: 1.65, z: 0}
+--- !u!114 &884896387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884896385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 99
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 90
+    OrthographicSize: 5
+    NearClipPlane: 0.01
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1 &885115408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6906,6 +6981,7 @@ Transform:
   - {fileID: 687082333}
   - {fileID: 968834973}
   - {fileID: 1518908996}
+  - {fileID: 884896386}
   - {fileID: 563264839}
   - {fileID: 885115409}
   - {fileID: 3884888}
@@ -11252,11 +11328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBoxes:
   - Dialogues:
-    - {fileID: 11400000, guid: 95c1e32b8f4a6b1489697d2a45b4fa83, type: 2}
+    - {fileID: 11400000, guid: 7489bb602fce4da44b8182ecfa0f6932, type: 2}
     Camera: {fileID: 1641113190}
     isForcedToNextDialogue: 0
-    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
-    timeToNextDialogue: 2
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 0
     OnVHSAudio:
       m_PersistentCalls:
         m_Calls:
@@ -11269,18 +11345,42 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: VHS_Talk_High
+            m_StringArgument: VHS_Talk
             m_BoolArgument: 0
           m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
   - Dialogues:
-    - {fileID: 11400000, guid: e3141b397351b784b87b239ec55f62ba, type: 2}
+    - {fileID: 11400000, guid: 71548dbabcdf1a0428dfe02cf72fcaa8, type: 2}
     Camera: {fileID: 666638841}
-    isForcedToNextDialogue: 1
-    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
-    timeToNextDialogue: 1.5
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 2aafec4da46bb33419a68bf0a5962cba, type: 2}
+    Camera: {fileID: 884896387}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
+    timeToNextDialogue: 0
     OnVHSAudio:
       m_PersistentCalls:
         m_Calls:
@@ -11300,15 +11400,60 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - Dialogues:
-    - {fileID: 11400000, guid: 52e95d04c0e6fa64b93e0ce361ad987c, type: 2}
-    Camera: {fileID: 522640746}
-    isForcedToNextDialogue: 0
-    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    - {fileID: 11400000, guid: a61e022a6ad3bad4cbba65970d8173eb, type: 2}
+    Camera: {fileID: 884896387}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 1.5
     OnVHSAudio:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
     OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 94bf7d383331dd34e843724d9ba06d15, type: 2}
+    Camera: {fileID: 1641113190}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 3368bc6567cb6ad4f88bcbdcb1c63db0, type: 2}
+    Camera: {fileID: 522640746}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 1.5
+    OnVHSAudio:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1109130679}
@@ -11323,13 +11468,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
   - Dialogues:
-    - {fileID: 11400000, guid: bfa3bcf4c270d26478fda2d94c06f503, type: 2}
-    - {fileID: 11400000, guid: 6d1685a8f9a25c544b7ffe2194ee048c, type: 2}
-    - {fileID: 11400000, guid: dc01f25f19398c845819cf9ee9754aea, type: 2}
-    Camera: {fileID: 563264840}
+    - {fileID: 11400000, guid: e5ba27bc9554c2845b9b075da795be43, type: 2}
+    - {fileID: 11400000, guid: 1d25466138ae5bf42905bb2a3916fdb4, type: 2}
+    - {fileID: 11400000, guid: d0b72d4934efd3a418a6aedd246677bc, type: 2}
+    Camera: {fileID: 666638841}
     isForcedToNextDialogue: 0
-    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 1.5
     OnVHSAudio:
       m_PersistentCalls:
@@ -11355,12 +11503,9 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: VHS_Talk
+            m_StringArgument: VHS_Talk_High
             m_BoolArgument: 0
           m_CallState: 2
-    OnDialogueComplete:
-      m_PersistentCalls:
-        m_Calls:
         - m_Target: {fileID: 284342844}
           m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
           m_MethodName: EvaluateToBooOrToChher
@@ -11370,12 +11515,15 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 2
-            m_StringArgument: 
+            m_StringArgument: VHS_Talk_High
             m_BoolArgument: 0
           m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
   - Dialogues:
-    - {fileID: 11400000, guid: 0a0cfba11cbb7bb44b94b29ba92dac83, type: 2}
-    Camera: {fileID: 1518908997}
+    - {fileID: 11400000, guid: 6b62410e703f03d4fabb283267350fdd, type: 2}
+    Camera: {fileID: 1641113190}
     isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 1.5
@@ -11408,54 +11556,6 @@ MonoBehaviour:
           m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
-        m_Calls: []
-  - Dialogues:
-    - {fileID: 11400000, guid: 78b1ae816c0642b4f807d034b114789c, type: 2}
-    Camera: {fileID: 1641113190}
-    isForcedToNextDialogue: 1
-    Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
-    timeToNextDialogue: 1
-    OnVHSAudio:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1309799368}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlaySoundWithRandomPitch
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: VHS_Talk
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnDialogueComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - Dialogues:
-    - {fileID: 11400000, guid: e100c4c183f7ef842a5ba11409ad4a15, type: 2}
-    Camera: {fileID: 687082334}
-    isForcedToNextDialogue: 1
-    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
-    timeToNextDialogue: 1
-    OnVHSAudio:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1309799368}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlaySoundWithRandomPitch
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: VHS_Talk
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnDialogueComplete:
-      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1605356514}
           m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
@@ -11466,7 +11566,28 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: AxeThrowingMinigameScene
+            m_StringArgument: WhereIsWaldoMinigame
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 8c1fa5afcc598e54a850ed6ba332d72d, type: 2}
+    Camera: {fileID: 666638841}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 1.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1309799368}
@@ -11501,7 +11622,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 1
+            m_FloatArgument: 1.5
             m_StringArgument: AudianceAudioCheering
             m_BoolArgument: 0
           m_CallState: 2
@@ -11525,20 +11646,20 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 1
+            m_FloatArgument: 1.5
             m_StringArgument: AudianceAudioCheering
             m_BoolArgument: 0
           m_CallState: 2
-  - Dialogues:
-    - {fileID: 11400000, guid: 3bbadfb0ae17ab04bbd4abf10bc3d17f, type: 2}
-    Camera: {fileID: 885115410}
-    isForcedToNextDialogue: 1
-    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
-    timeToNextDialogue: 1
-    OnVHSAudio:
+    OnDialogueComplete:
       m_PersistentCalls:
         m_Calls: []
-    OnDialogueComplete:
+  - Dialogues:
+    - {fileID: 11400000, guid: 9e3976f00aab8a7469f94d3686eefab0, type: 2}
+    Camera: {fileID: 885115410}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 1.5
+    OnVHSAudio:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 284342844}
@@ -11550,9 +11671,12 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: AxeThrowingMinigameScene
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 1605356514}
           m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
           m_MethodName: LoadSceneWithTransition
@@ -11562,7 +11686,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: AxeThrowingMinigameScene
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   typeWriter: {fileID: 2063541705}

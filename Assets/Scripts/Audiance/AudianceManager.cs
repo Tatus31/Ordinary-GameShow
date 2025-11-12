@@ -59,19 +59,32 @@ public class AudianceManager : MonoBehaviour
         if (PointManager.Instance.IsScorePassable || _isQuizRightAnswer)
         {
             SetAudianceToCheer(duration);
-            AudioManager.Instance.SetSoundToControl("AudianceAudioCheering");
-            AudioManager.Instance.SetPlayDuration(duration);
-            AudioManager.Instance.SetFadeDuration(duration);
-            AudioManager.Instance.UnmuteThenFadeOut();
+            PlaySound("AudianceAudioCheering", duration);
+        }
+        else if (PointManager.Instance.IsScoreInTheMiddle)
+        {
+            SetAudianceToNeutral(duration);
+            
+            //TODO when the audaince murmur sound gets added add it here 
+            
+            // AudioManager.Instance.SetSoundToControl("AudianceAudioCheering");
+            // AudioManager.Instance.SetPlayDuration(duration);
+            // AudioManager.Instance.SetFadeDuration(duration);
+            // AudioManager.Instance.UnmuteThenFadeOut();
         }
         else
         {
             SetAudianceToBoo(duration);
-            AudioManager.Instance.SetSoundToControl("AudianceAudioBooing");
-            AudioManager.Instance.SetPlayDuration(duration);
-            AudioManager.Instance.SetFadeDuration(duration);
-            AudioManager.Instance.UnmuteThenFadeOut();
+            PlaySound("AudianceAudioBooing", duration);
         }
+    }
+
+    private void PlaySound(string  soundName, float duration)
+    {
+        AudioManager.Instance.SetSoundToControl(soundName);
+        AudioManager.Instance.SetPlayDuration(duration);
+        AudioManager.Instance.SetFadeDuration(duration);
+        AudioManager.Instance.UnmuteThenFadeOut();
     }
 
     public void SetAudianceToNeutral(float duration)

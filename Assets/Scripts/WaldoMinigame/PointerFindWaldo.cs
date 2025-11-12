@@ -7,13 +7,11 @@ public class PointerFindWaldo : MonoBehaviour
     [SerializeField] private string sceneName;
     
     private bool isRightAnswer = false;
-
+    private bool _hasFoundSceneController;
+    
     private void Start()
     {
-        if (SceneController.Instance)
-            SceneController.Instance.PrewarmScene(sceneName);
-        else
-            Debug.Log("there is no SceneController.Instance");
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -37,9 +35,12 @@ public class PointerFindWaldo : MonoBehaviour
 
     private void LoadNextScene()
     {
-        if (SceneController.Instance)
+        if (!SceneController.Instance)
         {
-            SceneController.Instance.LoadSceneWithTransition();
+            Debug.LogError("No SceneController found in the scene.");
+            return;
         }
+
+        SceneController.Instance.LoadSceneWithPrewarm(sceneName);
     }
 }

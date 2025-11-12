@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class MoleAreaManager : MonoBehaviour
 {
+    public static event Action<int> OnDuckEscaped;
+    
     [SerializeField] private List<MoleArea> moleAreas = new List<MoleArea>();
     [Header("Activation Time")]
     [SerializeField] private float lowActivationTime = 3f;
@@ -21,6 +23,10 @@ public class MoleAreaManager : MonoBehaviour
     private float _currentMinActivationTime;
     private float _currentMaxActivationTime;
 
+    private int _escapedDucks = 0;
+    
+    private bool _isSpawning = true;
+
     private static float GlobalMinActivationTimeBonus;
     private static float GlobalMaxActivationTimeBonus;
 
@@ -30,6 +36,9 @@ public class MoleAreaManager : MonoBehaviour
         {
             moleArea.IsActive = false;
         }
+
+        _escapedDucks = 0;
+        _isSpawning = true;
                 
         _currentMinActivationTime = Mathf.Max(minActivationTime, lowActivationTime - GlobalMinActivationTimeBonus);
         _currentMaxActivationTime = Mathf.Max(maxActivationTime, highActivationTime - GlobalMaxActivationTimeBonus);
@@ -41,7 +50,7 @@ public class MoleAreaManager : MonoBehaviour
     {
         int molesSpawned = 0;
         
-        while (true)
+        while (_isSpawning)
         {
             int randomIndex = 0;
 
@@ -67,10 +76,25 @@ public class MoleAreaManager : MonoBehaviour
             {
                 PointManager.Instance.AddPoints(-points);
                 XActivation.Instance.ActivateX();
+                
+                _escapedDucks++;
+                OnDuckEscaped?.Invoke(_escapedDucks);
             }
             
             moleAreas[randomIndex].IsActive = false;
         }
+    }
+
+    public void DestroyAllDucks()
+    {
+        _isSpawning = false;
+        
+        foreach (var moleArea in moleAreas)
+        {
+            Destroy(moleArea.gameObject);
+        }
+        
+        moleAreas.RemoveAll(mole => !mole);
     }
     
     private void SpeedUpMoles()

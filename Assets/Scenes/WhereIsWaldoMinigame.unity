@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9234fb79679d6134db4d5876e97d1a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: WinScene
+  sceneName: GameShowScene
 --- !u!1001 &482750732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -628,6 +628,7 @@ MonoBehaviour:
   hammerAnimator: {fileID: 0}
   distanceFromCanvas: 0.01
   isForWacamole: 0
+  isForAxe: 0
   points: 0
   pointsForDuck: 0
   pointsForRed: 0
@@ -922,7 +923,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081085551}
   m_CullTransparentMesh: 1
---- !u!1001 &1086308532
+--- !u!1001 &1112017927
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1556,7 +1557,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 482750732}
   - {fileID: 1783136869}
-  - {fileID: 1086308532}
   - {fileID: 1798218131}
   - {fileID: 1895244417}
   - {fileID: 884195313}
@@ -1564,3 +1564,4 @@ SceneRoots:
   - {fileID: 1759990231}
   - {fileID: 1060031720}
   - {fileID: 1743465286}
+  - {fileID: 1112017927}

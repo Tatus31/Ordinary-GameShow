@@ -42,6 +42,8 @@ public class EggSpawner : MonoBehaviour
     private void Start()
     {
         _spawnTimer = spawnTimeCooldown;
+        _isSpawning = true;
+        
         _spawnRoutine = StartCoroutine(SpawnEggs());
     }
 

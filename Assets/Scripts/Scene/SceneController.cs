@@ -12,7 +12,9 @@ public enum LastScene
     QuizMinigameScene,
     WhereIsWaldoMinigame,
     GameShowSceneAfterAxeMinigame,
-    GameShowSceneAfterEggMinigame
+    GameShowSceneAfterEggMinigame,
+    GameShowSceneAfterQuizMinigame,
+    GameShowSceneAfterWacamoleMinigame
 }
 
 public class SceneController : MonoBehaviour
@@ -30,20 +32,19 @@ public class SceneController : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            
-            if(shouldPersist)
-                DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance && Instance != this)
         {
             Destroy(gameObject);
 #if UNITY_EDITOR
-            Debug.LogWarning("Instance already destroyed");
+            Debug.LogWarning("Duplicate instance of SceneController");    
 #endif
+            return;
         }
+
+        Instance = this;
+        
+        if(shouldPersist)
+            DontDestroyOnLoad(gameObject);
     }
 
     public void PrewarmScene(string sceneName)
@@ -75,8 +76,17 @@ public class SceneController : MonoBehaviour
     }
 
     public void LoadSceneWithTransition()
-    {    
+    {       
+        if (_loadSceneOperation == null)
+        {
+#if UNITY_EDITOR
+            Debug.LogError("No prewarmed scene to load! Call PrewarmScene() first.");
+#endif
+            return;
+        }
+        
         Scene currentScene = SceneManager.GetActiveScene();
+        
         try
         {
             LastScene = (LastScene)Enum.Parse(typeof(LastScene), currentScene.name);
@@ -92,11 +102,49 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadSceneWithTransitionCoroutine());
     }
 
+    public void LoadSceneWithPrewarm(string sceneName)
+    {
+        StartCoroutine(LoadSceneWithPrewarmCoroutine(sceneName));
+    }
+
+    private IEnumerator LoadSceneWithPrewarmCoroutine(string sceneName)
+    {
+        _loadSceneOperation = SceneManager.LoadSceneAsync(sceneName);
+        _loadSceneOperation.allowSceneActivation  = false;
+
+        while (_loadSceneOperation.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        curtainObj.SetActive(true);
+        animator.SetBool("StartTransition", true);
+        yield return new WaitForSeconds(transitionDuration);
+        
+        _loadSceneOperation.allowSceneActivation = true;
+        yield return _loadSceneOperation;
+        
+        animator.SetBool("StartTransition", false);
+        yield return new WaitForSeconds(transitionDuration);
+        curtainObj.SetActive(false);
+        _loadSceneOperation = null;
+    }
+
     private IEnumerator LoadSceneWithTransitionCoroutine()
     {
         animator.SetBool("StartTransition", true);
 
         yield return new WaitForSeconds(transitionDuration);
+        
+        if (_loadSceneOperation == null)
+        {
+#if UNITY_EDITOR
+            Debug.LogError("loadSceneOperation is null during transition");
+#endif
+            animator.SetBool("StartTransition", false);
+            curtainObj.SetActive(false);
+            yield break;
+        }
         
         _loadSceneOperation.allowSceneActivation  = true; 
         

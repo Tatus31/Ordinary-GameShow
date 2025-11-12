@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f84bd87c272b94eba5d686d18fccf7, type: 3}
   m_Name: PlayerPoints
   m_EditorClassIdentifier: 
-  CurrentPoints: 50
+  CurrentPoints: 0
+  CurrentAllMinigamePoints: 0
   MaxPointsEgg: 500
   MinPointsEgg: 300
   MaxPointsAxe: 400
