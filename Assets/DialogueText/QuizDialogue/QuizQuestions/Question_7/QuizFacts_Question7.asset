@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: QuizFacts_Question7
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'Here will be a fact about question 7
-
-'
+  - DialogueText: How did that get here... Well I'm going to act like that never
+      happended
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

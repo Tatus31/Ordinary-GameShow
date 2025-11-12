@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: D
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: the right anwser D
+  - DialogueText: between 1 to 2 hours
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 1

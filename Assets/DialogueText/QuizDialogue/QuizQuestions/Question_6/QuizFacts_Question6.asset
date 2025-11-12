@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: QuizFacts_Question6
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'Here will be a fact about question 6
-
-'
+  - DialogueText: The number of continents can vary depanding on definition from
+      7 to even as low as 4 with cases like Eurasia!
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

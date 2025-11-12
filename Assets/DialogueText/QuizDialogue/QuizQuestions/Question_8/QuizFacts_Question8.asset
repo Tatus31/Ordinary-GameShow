@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: QuizFacts_Question8
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'Here will be a fact about question 8
-
-'
+  - DialogueText: Minecraft is to this day the best selling game of all time with
+      300M copies sold
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

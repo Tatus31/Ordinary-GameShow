@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 8
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'here is the question now 8 '
+  - DialogueText: What is the best selling video game of all time?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

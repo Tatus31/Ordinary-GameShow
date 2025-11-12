@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 7
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'here is the question now 7 '
+  - DialogueText: How long would it take for a person to suffocate in a coffin?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question 6
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: here is the question now 6
+  - DialogueText: how many continents are there?
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

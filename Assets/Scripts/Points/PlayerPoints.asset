@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerPoints
   m_EditorClassIdentifier: 
   CurrentPoints: 0
-  CurrentAllMinigamePoints: 0
+  CurrentAllMinigamePoints: 1510
   MaxPointsEgg: 500
   MinPointsEgg: 300
   MaxPointsAxe: 400

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBoxes:
   - DialogueText: Wow I can see smoke coming of that head of yours so let's stop
-      here and see how many points you now have
+      here and see how many points you now have in the next section
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

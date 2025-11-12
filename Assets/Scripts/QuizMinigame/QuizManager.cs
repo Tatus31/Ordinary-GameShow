@@ -30,6 +30,8 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI quizAnswerB;
     [SerializeField] private TextMeshProUGUI quizAnswerC;
     [SerializeField] private TextMeshProUGUI quizAnswerD;
+    [Header("Points")] 
+    [SerializeField] private int points;
 
     public static bool IsAnsweringQuestions;
     
@@ -66,6 +68,15 @@ public class QuizManager : MonoBehaviour
     {
         DialogueBranchManager.Instance.SetBranch("Correct", isRightAnswer);
         DialogueBranchManager.Instance.SetBranch("Wrong", !isRightAnswer);
+
+        if (isRightAnswer)
+        {
+            PointManager.Instance.AddPoints(points);
+        }
+        else
+        {
+            PointManager.Instance.AddPoints(-points);
+        }
 
         PlayChoiceSound(isRightAnswer);
         OnQuizAnswered?.Invoke(isRightAnswer);

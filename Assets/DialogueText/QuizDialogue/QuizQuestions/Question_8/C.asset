@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: C
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: The wrong answer C
+  - DialogueText: Knack 2
     BranchKey: 
     IsExpectedToBranch: 0
+  IsTheRightAnswer: 0

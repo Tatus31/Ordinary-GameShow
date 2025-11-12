@@ -122,7 +122,6 @@ public class PointManager : MonoBehaviour
         _isScoreInTheMiddle =  inMiddle;
 
         currentPointsData.CurrentAllMinigamePoints += currentPointsData.CurrentPoints;
-        currentPointsData.CurrentPoints = 0;
 
         DialogueBranchManager.Instance.SetBranch("PointsPositive", reachedMax);
         DialogueBranchManager.Instance.SetBranch("PointsNeutral", inMiddle);
@@ -138,5 +137,10 @@ public class PointManager : MonoBehaviour
 #if UNITY_EDITOR
             Debug.LogWarning("DialogueManager reference missing in PointManager!");
 #endif
+    }
+
+    public void ClearPoints()
+    {
+        currentPointsData.CurrentPoints = 0;
     }
 }
