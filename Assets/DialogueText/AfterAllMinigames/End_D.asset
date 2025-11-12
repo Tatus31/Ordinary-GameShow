@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End_D
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: 'You can''t even get a participation trophy with a score like that '
+    BranchKey: D
+    IsExpectedToBranch: 1
   IsTheRightAnswer: 0

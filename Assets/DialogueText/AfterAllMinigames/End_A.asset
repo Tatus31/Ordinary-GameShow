@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End_A
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: FENOMENAL WORK i knew i could count on you!
+    BranchKey: A
+    IsExpectedToBranch: 1
   IsTheRightAnswer: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End_C
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: Well as average as always I suppose
+    BranchKey: C
+    IsExpectedToBranch: 1
   IsTheRightAnswer: 0

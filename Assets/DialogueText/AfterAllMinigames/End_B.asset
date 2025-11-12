@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End_B
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: GOOD GOOD that's preaty much as good as it can get
+    BranchKey: B
+    IsExpectedToBranch: 1
   IsTheRightAnswer: 0

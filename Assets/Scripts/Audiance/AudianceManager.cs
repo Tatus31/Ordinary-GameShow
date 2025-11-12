@@ -54,8 +54,46 @@ public class AudianceManager : MonoBehaviour
         _isQuizRightAnswer = isRightAnswer;
     }
 
+    public void EvaluateFinalAudienceReaction(float duration)
+    {
+        if (!DetermineFinalScore.Instance)
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning("Instance not found");
+#endif
+            return;
+        }
+
+        string finalGrade = DetermineFinalScore.Instance.GetFinalGrade();
+        
+        switch (finalGrade)
+        {
+            case "A":
+            case "B":
+                SetAudianceToCheer(duration);
+                PlaySound("AudienceAudioCheering", duration);
+                break;
+            
+            case "C":
+                SetAudianceToNeutral(duration);
+                //TODO when the audaince murmur sound gets added add it here 
+                break;
+            
+            case "D":
+            case "F":
+                SetAudianceToBoo(duration);
+                PlaySound("AudianceAudioBooing", duration);
+                break;
+            
+            default:
+                SetAudianceToNeutral(duration);
+                break;
+        }
+    }
+    
     public void EvaluateToBooOrToChher(float duration)
     {
+
         if (PointManager.Instance.IsScorePassable || _isQuizRightAnswer)
         {
             SetAudianceToCheer(duration);
@@ -150,5 +188,10 @@ public class AudianceManager : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log($"changed: {_audianceSprites.Length + 1} to {sprite}");
 #endif
+    }
+
+    private void OnDestroy()
+    {
+        QuizManager.OnQuizAnswered -= QuizManager_OnQuizAnswered;
     }
 }

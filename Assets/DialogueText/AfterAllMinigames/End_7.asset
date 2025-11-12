@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: End_7
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
+  - DialogueText: "Goodbye, Do widzenia, Adi\xF3s, Au revoir, Auf wiedersehen, Arrivederci,
+      Hej d\xE5"
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

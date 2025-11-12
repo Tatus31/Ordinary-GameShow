@@ -2912,6 +2912,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &546410294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546410295}
+  - component: {fileID: 546410296}
+  m_Layer: 0
+  m_Name: LookingAtPointsBoardCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546410295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546410294}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.017617825, y: -0.006425089, z: 0.0076270127, w: -0.9997951}
+  m_LocalPosition: {x: -1.71, y: 1.3, z: -2.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1214650035}
+  m_LocalEulerAnglesHint: {x: 2.024, y: 0.721, z: -0.861}
+--- !u!114 &546410296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546410294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 1
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 90
+    OrthographicSize: 5
+    NearClipPlane: 0.01
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1 &554785907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7320,6 +7395,7 @@ Transform:
   - {fileID: 1518908996}
   - {fileID: 563264839}
   - {fileID: 885115409}
+  - {fileID: 546410295}
   - {fileID: 3884888}
   - {fileID: 522640745}
   m_Father: {fileID: 0}
@@ -11739,17 +11815,286 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - Dialogues: []
-    Camera: {fileID: 0}
+  - Dialogues:
+    - {fileID: 11400000, guid: feb897e9d95267446a3da175ea461732, type: 2}
+    Camera: {fileID: 1641113190}
     isForcedToNextDialogue: 0
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 04c51270c6ef22e4f82f9cef6b1b24b8, type: 3}
     timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 1e60184d0024b4145b6122ff914229c8, type: 2}
+    Camera: {fileID: 1518908997}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: d48e36fe9a3e24740810d2d25a76c334, type: 2}
+    Camera: {fileID: 1518908997}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 0
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 3dfc42dd94ab2704eaeafde0148c27ff, type: 2}
+    Camera: {fileID: 687082334}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 36cf760900584794e97758c67e422dcf, type: 2}
+    Camera: {fileID: 687082334}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk_High
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 8addd968b8f75f74cb195b95fa412b62, type: 2}
+    Camera: {fileID: 546410296}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2147210187}
+          m_TargetAssemblyTypeName: DetermineFinalScore, Assembly-CSharp
+          m_MethodName: EvaluateFinalScore
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2147210187}
+          m_TargetAssemblyTypeName: DetermineFinalScore, Assembly-CSharp
+          m_MethodName: RollTheScoreBoardDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 05a8c95c2fb6df24497c55bb56306d9b, type: 2}
+    - {fileID: 11400000, guid: 1149ca39fa196e74391cace41dd1f822, type: 2}
+    - {fileID: 11400000, guid: f35ed3661edaa794599c42bdc3b53568, type: 2}
+    - {fileID: 11400000, guid: a290ac5575efc9c44b0a01a4ca363326, type: 2}
+    - {fileID: 11400000, guid: 9365376c4d7c55747be5eb9e89d5bbb5, type: 2}
+    Camera: {fileID: 1641113190}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 284342844}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: EvaluateFinalAudienceReaction
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: bf73321278519a5459b5b96ef61c65bc, type: 2}
+    Camera: {fileID: 666638841}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
+    timeToNextDialogue: 2
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 284342844}
+          m_TargetAssemblyTypeName: AudianceManager, Assembly-CSharp
+          m_MethodName: SetAudianceToNeutral
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Dialogues:
+    - {fileID: 11400000, guid: 249f9db9f2cfe5c4c847c28c2f011c75, type: 2}
+    Camera: {fileID: 666638841}
+    isForcedToNextDialogue: 1
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 2.5
+    OnVHSAudio:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1309799368}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlaySoundWithRandomPitch
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnDialogueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - Dialogues:
+    - {fileID: 11400000, guid: 8addd968b8f75f74cb195b95fa412b62, type: 2}
+    Camera: {fileID: 885115410}
+    isForcedToNextDialogue: 0
+    Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
+    timeToNextDialogue: 2
     OnVHSAudio:
       m_PersistentCalls:
         m_Calls: []
     OnDialogueComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2147210187}
+          m_TargetAssemblyTypeName: DetermineFinalScore, Assembly-CSharp
+          m_MethodName: LoadWinOrLooseSceneBasedOnScore
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   typeWriter: {fileID: 2063541705}
   dialogueBoxText: {fileID: 1819672105}
   cinemachineBrain: {fileID: 1845654815}
@@ -11830,6 +12175,135 @@ Transform:
   - {fileID: 614142068}
   - {fileID: 234195074}
   m_Father: {fileID: 2139132699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2088650319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088650321}
+  - component: {fileID: 2088650320}
+  m_Layer: 0
+  m_Name: YaySound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2088650320
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088650319}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 5277837489401587255, guid: 3c3bdbc3244f7054a8bc33eae1f641b4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3094973360933794ba0ad7b20e1fc4f0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3094973360933794ba0ad7b20e1fc4f0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 80
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2088650321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088650319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2107704970
 GameObject:
@@ -12112,7 +12586,7 @@ Transform:
   m_GameObject: {fileID: 2147210185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.826, y: 7.51, z: 2.24}
+  m_LocalPosition: {x: -1.826, y: 8, z: 2.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12353,3 +12827,4 @@ SceneRoots:
   - {fileID: 1984964109}
   - {fileID: 1363094381}
   - {fileID: 2147210186}
+  - {fileID: 2088650321}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: End_F
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 
-    BranchKey: 
-    IsExpectedToBranch: 0
+  - DialogueText: Really, how? I thought it's impossible to be that bad at everything
+      did you let your dog or cat on the computer?
+    BranchKey: F
+    IsExpectedToBranch: 1
   IsTheRightAnswer: 0
