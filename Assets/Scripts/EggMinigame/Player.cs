@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
+        boxCollider2DLow.gameObject.SetActive(true);
+        boxCollider2DHigh.gameObject.SetActive(false);
+        
 //         if (!handPivot)
 //         {
 // #if UNITY_EDITOR
