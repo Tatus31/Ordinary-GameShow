@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,14 +11,16 @@ public class PointerFindWaldo : MonoBehaviour
     
     private bool _isRightAnswer = false;
     private bool _hasFoundSceneController;
+    private bool _canStart;
 
     private float _timeFindingWaldo;
 
-    private float dividedValue;
+    private float _dividedValue;
     
     private void Start()
     {
         FindWaldoTimer.OnStartTransition += FindWaldoTimer_OnStartTransition;
+        StartCoroutine(TimerBeforeSearchBegins());
     }
 
     private void FindWaldoTimer_OnStartTransition(int obj)
@@ -38,6 +41,9 @@ public class PointerFindWaldo : MonoBehaviour
 
     private void Update()
     {
+        if(!_canStart)
+            return;
+        
         if (_isRightAnswer && Input.GetButtonDown("Fire1"))
         {
             FindWaldoTimer.HasFoundWaldo = true;
@@ -70,9 +76,17 @@ public class PointerFindWaldo : MonoBehaviour
 
         SceneController.Instance.LoadSceneWithPrewarm(sceneName);
     }
+    
+    private IEnumerator TimerBeforeSearchBegins()
+    {
+        _canStart = false;
+        yield return new WaitForSeconds(1f);
+        _canStart = true;
+    }
 
     private void OnDestroy()
     {
         FindWaldoTimer.OnStartTransition -= FindWaldoTimer_OnStartTransition;
     }
+    
 }
