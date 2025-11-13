@@ -11389,7 +11389,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: b783ff9065911d44a838be2667b9aaee, type: 2}
     Camera: {fileID: 3884887}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -11808,7 +11808,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1605356514}
           m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
