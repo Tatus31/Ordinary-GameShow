@@ -104,8 +104,33 @@ public class SceneController : MonoBehaviour
 
     public void LoadSceneWithPrewarm(string sceneName)
     {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+#if UNITY_EDITOR
+            Debug.LogError("[SceneController] sceneName is null or empty!");
+#endif
+            return;
+        }
+
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+#if UNITY_EDITOR
+            Debug.LogError($"Scene {sceneName} cannot be loaded " + "Check Build Settings or scene name spelling.");
+#endif
+            return;
+        }
+
+        if (SceneManager.GetSceneByName(sceneName).isLoaded)
+        {
+#if UNITY_EDITOR      
+            Debug.LogWarning($"[SceneController] Scene '{sceneName}' is already loaded. Skipping load.");
+#endif
+            return;
+        }
+
         StartCoroutine(LoadSceneWithPrewarmCoroutine(sceneName));
     }
+
 
     private IEnumerator LoadSceneWithPrewarmCoroutine(string sceneName)
     {

@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class ChangeSettingType : MonoBehaviour
 {
-    [SerializeField] private RectTransform audio;
-    [SerializeField] private RectTransform resolution;
+    [SerializeField] private RectTransform audioRect;
+    [SerializeField] private RectTransform resolutionRect;
     
     public void ChangeToAudio()
     {
-        resolution.gameObject.SetActive(false);
-        audio.gameObject.SetActive(true);
+        resolutionRect.gameObject.SetActive(false);
+        audioRect.gameObject.SetActive(true);
     }
 
     public void ChangeToResolution()
     {
-        audio.gameObject.SetActive(false);
-        resolution.gameObject.SetActive(true);
+        audioRect.gameObject.SetActive(false);
+        resolutionRect.gameObject.SetActive(true);
     }
 }
