@@ -3721,8 +3721,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenCanvas: {fileID: 1777542833469538123, guid: 799ea4a204951364184ff7709064d91a, type: 3}
   pointCanvas: {fileID: 1599591812512255375, guid: e049442d98959b749ae96c90eba49a76, type: 3}
-  winCanvas: {fileID: 6795132428453042351, guid: 2d1849857b5c34c42bfec3c4c67d6fb3, type: 3}
-  loseCanvas: {fileID: 6613945697732274772, guid: af25cf12e84c32143abe423cc61d7b1b, type: 3}
   renderTexture: {fileID: 8600000, guid: 1bcf019f344d09e4881d4eac95bcb602, type: 2}
   resolutionDropdown: {fileID: 940238968}
   image: {fileID: 1500045773}

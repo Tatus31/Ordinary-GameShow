@@ -15,10 +15,10 @@ public class ChangeResolution : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        // if (FindObjectsByType<ChangeResolution>().Length > 1)
-        // {
-        //     Destroy(gameObject);
-        // }
+        if (FindObjectsOfType<ChangeResolution>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
     }
     private void Start()
     {
@@ -81,6 +81,8 @@ public class ChangeResolution : MonoBehaviour
 
         UpdateCanvasScaler(screenCanvas, width, height);
         UpdateCanvasScaler(pointCanvas, width, height);
+        
+        Debug.Log($"Resolution changed to: {width}x{height}, RawImage and Curtains size: {imageWidth}x{height}");
     }
 
     private void UpdateCanvasScaler(Canvas canvas, int width, int height)
