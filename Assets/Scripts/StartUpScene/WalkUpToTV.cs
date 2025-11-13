@@ -49,8 +49,7 @@ public class WalkUpToTV : MonoBehaviour
 
     private void Start()
     {
-        SceneController.Instance.PrewarmScene("GameShowScene");
-        
+        CursorState.LockCursor();
         StartCoroutine(ActivateCamerasInSequence());
     }
     

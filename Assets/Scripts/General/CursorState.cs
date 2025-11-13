@@ -1,13 +1,8 @@
 using System;
 using UnityEngine;
 
-public class CursorState : MonoBehaviour
+public class CursorState
 {
-    private void Start()
-    {
-        LockCursor();
-    }
-
     public static void UnlockCursor()
     {
         Cursor.visible = true;
