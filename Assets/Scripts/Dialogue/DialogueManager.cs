@@ -37,13 +37,12 @@ public class DialogueManager : MonoBehaviour
     private int _currentDialogueIndex = -1;
     private bool _isDialogueChanging = false;
     private float _lastClickTime = -Mathf.Infinity;
-    private bool _isWaitingToFinishMinigame = false;
     
     private DialogueBox _currentDialogueBox;
     
     private Coroutine _forceNextDialogueRoutine;
 
-    private bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || QuizManager.IsAnsweringQuestions || _isWaitingToFinishMinigame || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
+    private bool IsDialogueBlocked => NameSelection.IsTypingName || IsCameraBlending || QuizManager.IsAnsweringQuestions || (_currentDialogueBox?.isForcedToNextDialogue ?? false);
 
     public bool IsCameraBlending => cinemachineBrain && cinemachineBrain.IsBlending;
     
@@ -93,6 +92,15 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            Debug.Log($"[Dialogue Debug] Blocked={IsDialogueBlocked}, " +
+                      $"Blending={IsCameraBlending}, " +
+                      $"Forced={_currentDialogueBox?.isForcedToNextDialogue}, " +
+                      $"Index={_currentDialogueIndex}");
+        }
+
         if (IsDialogueBlocked)
             return;
         
@@ -121,11 +129,6 @@ public class DialogueManager : MonoBehaviour
                 StartNextDialogue();
             }
         }
-    }
-
-    public void IsWaitingToFinishMinigame(bool isWaiting)
-    {
-        _isWaitingToFinishMinigame = isWaiting;
     }
     
     public void StartNextDialogue()
