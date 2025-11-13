@@ -3719,12 +3719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bac01cfb82508e40846811fe013fe16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenCanvas: {fileID: 1777542833469538123, guid: 799ea4a204951364184ff7709064d91a, type: 3}
+  screenCanvas: {fileID: 1387733945}
   pointCanvas: {fileID: 1599591812512255375, guid: e049442d98959b749ae96c90eba49a76, type: 3}
   renderTexture: {fileID: 8600000, guid: 1bcf019f344d09e4881d4eac95bcb602, type: 2}
   resolutionDropdown: {fileID: 940238968}
   image: {fileID: 1500045773}
   curtains: {fileID: 1110831002451587845, guid: ec66c76818871174bbf6640009805475, type: 3}
+--- !u!223 &1387733945 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1777542833469538123, guid: 799ea4a204951364184ff7709064d91a, type: 3}
+  m_PrefabInstance: {fileID: 767590637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1410007471
 GameObject:
   m_ObjectHideFlags: 0

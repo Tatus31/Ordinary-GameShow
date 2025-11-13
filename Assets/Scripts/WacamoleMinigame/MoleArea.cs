@@ -1,8 +1,18 @@
 using System;
 using UnityEngine;
+public enum MoleState
+{
+    Hidden,
+    GoingUp,
+    Visible,
+    GoingDown
+}
 
 public class MoleArea : MonoBehaviour
 {
+
+    public MoleState CurrentState { get; private set; } = MoleState.Hidden;
+
     [SerializeField] private bool isActive;
     [SerializeField] private Transform mole;
     [SerializeField] private SpriteRenderer duckSprite;
@@ -23,8 +33,28 @@ public class MoleArea : MonoBehaviour
         set
         {
             isActive = value;
-            _targetPosition = isActive ? transform.position + upPosition : transform.position + downPosition;
+            if (isActive)
+            {
+                _targetPosition = transform.position + upPosition;
+                CurrentState = MoleState.GoingUp;
+            }
+            else
+            {
+                _targetPosition = transform.position + downPosition;
+                CurrentState = MoleState.GoingDown;
+            }
         }
+    }
+
+
+    public Transform Mole
+    {
+        get { return mole; }
+    }
+
+    public Vector3 TargetPosition
+    {
+        get { return _targetPosition; }
     }
 
     public SpriteRenderer DuckSprite
@@ -56,8 +86,24 @@ public class MoleArea : MonoBehaviour
         if (!mole) 
             return;
 
-        mole.position = Vector3.MoveTowards( mole.position, _targetPosition, (Vector3.Distance(mole.position, _targetPosition) / moveDuration) * Time.deltaTime );
+        if (Vector3.Distance(mole.position, _targetPosition) > 0.001f)
+        {
+            mole.position = Vector3.MoveTowards(mole.position, _targetPosition, 
+                (Vector3.Distance(mole.position, _targetPosition) / moveDuration) * Time.deltaTime);
+        }
+        else
+        {
+            if (CurrentState == MoleState.GoingUp)
+            {
+                CurrentState = MoleState.Visible; 
+            }
+            else if (CurrentState == MoleState.GoingDown)
+            {
+                CurrentState = MoleState.Hidden; 
+            }
+        }
     }
+
 
     private void OnDrawGizmos()
     {

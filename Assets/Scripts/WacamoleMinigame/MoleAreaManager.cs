@@ -26,6 +26,7 @@ public class MoleAreaManager : MonoBehaviour
     private int _escapedDucks = 0;
     
     private bool _isSpawning = true;
+    private bool _skipFirstMole = true;
 
     private static float GlobalMinActivationTimeBonus;
     private static float GlobalMaxActivationTimeBonus;
@@ -49,39 +50,68 @@ public class MoleAreaManager : MonoBehaviour
     private IEnumerator ActivateRandomMoleAreas(float seconds)
     {
         int molesSpawned = 0;
-        
+
         while (_isSpawning)
         {
-            int randomIndex = 0;
-
             if (molesSpawned > maxMolesSpawned)
             {
                 SpeedUpMoles();
                 molesSpawned = 0;
             }
-            
-            if (moleAreas.Count > 0)
+
+            int molesToSpawn = Random.Range(1, Mathf.Min(4, moleAreas.Count + 1));
+            List<int> spawnedIndices = new List<int>();
+
+            for (int i = 0; i < molesToSpawn; i++)
             {
-                randomIndex = Random.Range(0,  moleAreas.Count);
-                moleAreas[randomIndex].IsActive = true;
-                moleAreas[randomIndex].DuckSprite.sprite = moleAreas[randomIndex].NormalDuckSprite;
-                moleAreas[randomIndex].WasHit = false;
-                
+                int randomIndex;
+                do
+                {
+                    randomIndex = Random.Range(0, moleAreas.Count);
+                } while (spawnedIndices.Contains(randomIndex));
+
+                spawnedIndices.Add(randomIndex);
+
+                MoleArea mole = moleAreas[randomIndex];
+                mole.IsActive = true;
+                mole.DuckSprite.sprite = mole.NormalDuckSprite;
+                mole.WasHit = false;
+
                 molesSpawned++;
-            } 
-            
-            yield return new WaitForSeconds(seconds);
-            
-            if (!moleAreas[randomIndex].WasHit)
-            {
-                PointManager.Instance.AddPoints(-points);
-                XActivation.Instance.ActivateX();
                 
-                _escapedDucks++;
-                OnDuckEscaped?.Invoke(_escapedDucks);
+                yield return new WaitUntil(() => mole.CurrentState == MoleState.Visible);
             }
             
-            moleAreas[randomIndex].IsActive = false;
+            yield return new WaitForSeconds(seconds);
+
+            foreach (int index in spawnedIndices)
+            {
+                MoleArea mole = moleAreas[index];
+                
+                if (!mole.WasHit)
+                {
+                    mole.IsActive = false;
+
+                    yield return new WaitUntil(() => mole.CurrentState == MoleState.Hidden);
+
+                    if (_skipFirstMole)
+                    {
+                        _skipFirstMole = false;
+                        continue;
+                    }
+
+                    PointManager.Instance.AddPoints(-points);
+                    XActivation.Instance.ActivateX();
+
+                    _escapedDucks++;
+                    OnDuckEscaped?.Invoke(_escapedDucks);
+                }
+                else
+                {
+                    mole.IsActive = false;
+                }
+            }
+
         }
     }
 
@@ -104,8 +134,5 @@ public class MoleAreaManager : MonoBehaviour
         
         _currentMinActivationTime = Mathf.Max(minActivationTime, lowActivationTime - GlobalMinActivationTimeBonus);
         _currentMaxActivationTime = Mathf.Max(maxActivationTime, highActivationTime - GlobalMaxActivationTimeBonus);
-        
-        Debug.Log("Next target durations => Move: " + _currentMinActivationTime + ", Scale: " + _currentMaxActivationTime);
-        Debug.Log($"Next target globalMoveDurationBonus => {GlobalMinActivationTimeBonus}");
     }
 }

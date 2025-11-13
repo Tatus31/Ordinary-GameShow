@@ -15,10 +15,10 @@ public class ChangeResolution : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (FindObjectsOfType<ChangeResolution>().Length > 1)
-        {
-            Destroy(gameObject);
-        }
+        // if (FindObjectsOfType<ChangeResolution>().Length > 1)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
     private void Start()
     {
