@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WelcomeOnEntry_Part3
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: But thats even better, look how exited the audiance is JUST FOR
+  - DialogueText: But thats even better, look how exited the audience is JUST FOR
       YOU!
     BranchKey: 
     IsExpectedToBranch: 0
+  IsTheRightAnswer: 0

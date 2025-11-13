@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MInigameIntroduction_Part3
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Your points will apear right next to your name so that everyone
+  - DialogueText: Your points will appear right next to your name so that everyone
       knows how well you are doing
     BranchKey: 
     IsExpectedToBranch: 0
+  IsTheRightAnswer: 0

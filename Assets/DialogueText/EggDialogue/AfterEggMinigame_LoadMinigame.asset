@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AfterEggMinigame_LoadMinigame
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: Well then to not bore our audiance let's jump right into our next
+  - DialogueText: Well then to not bore our audience let's jump right into our next
       program!
     BranchKey: 
     IsExpectedToBranch: 0
