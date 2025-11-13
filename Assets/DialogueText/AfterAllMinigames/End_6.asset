@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: End_6
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: And with all that WE ARE DONE thank you for playing hope you enjoyed
-      your time with me
+  - DialogueText: And with all that WE ARE DONE! thank you for playing, hope you
+      enjoyed your time with me
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

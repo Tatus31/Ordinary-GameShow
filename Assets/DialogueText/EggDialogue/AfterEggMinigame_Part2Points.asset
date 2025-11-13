@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AfterEggMinigame_Part2Points
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: 'And now for the moment we''ve been waiting for your total score
+  - DialogueText: 'And now for the moment we''ve been waiting for, your total score
       amounts to.... '
     BranchKey: 
     IsExpectedToBranch: 0

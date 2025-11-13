@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End_4
   m_EditorClassIdentifier: 
   dialogueBoxes:
-  - DialogueText: But that all depands on your final score... SO drumroll please!
+  - DialogueText: But that all depends on your final score... SO drumroll please!
     BranchKey: 
     IsExpectedToBranch: 0
   IsTheRightAnswer: 0

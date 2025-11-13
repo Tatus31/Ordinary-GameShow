@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBoxes:
   - DialogueText: But beware... If you do not have enough points by the end of our
-      show. BAD thing will happen
+      show. BAD things will happen
     BranchKey: 
     IsExpectedToBranch: 0
+  IsTheRightAnswer: 0
