@@ -8,7 +8,6 @@ public class ChangeAudioSetting : MonoBehaviour
     public void ChangeMasterVolume(float volume)
     {
         mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        Debug.Log(volume);
     }
 
     public void ChangeMusicVolume(float volume)

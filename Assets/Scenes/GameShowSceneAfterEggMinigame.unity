@@ -11203,19 +11203,7 @@ MonoBehaviour:
           m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2063541703}
-          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-          m_MethodName: IsWaitingToFinishMinigame
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - Dialogues:
     - {fileID: 11400000, guid: 4aba992c8da0ae34b836c26cc0b47bed, type: 2}
     Camera: {fileID: 1641113190}
@@ -11327,6 +11315,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: PlaySoundWithRandomPitch
           m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: VHS_Talk
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8549653436915820425}
+          m_TargetAssemblyTypeName: SceneControllerProxyBehaviour, Assembly-CSharp
+          m_MethodName: CancelPrewarm
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

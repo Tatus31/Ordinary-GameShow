@@ -21,4 +21,9 @@ public class SceneControllerProxyBehaviour : MonoBehaviour
     {
         SceneControllerProxy.LoadSceneWithPrewarm(sceneName);
     }
+
+    public void CancelPrewarm()
+    {
+        SceneControllerProxy.CancelPrewarm();
+    }
 }

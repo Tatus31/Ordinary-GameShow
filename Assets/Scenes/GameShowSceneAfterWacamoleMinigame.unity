@@ -11603,7 +11603,19 @@ MonoBehaviour:
           m_CallState: 2
     OnDialogueComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 420078945}
+          m_TargetAssemblyTypeName: SceneControllerProxyBehaviour, Assembly-CSharp
+          m_MethodName: CancelPrewarm
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Dialogues:
     - {fileID: 11400000, guid: c9c0712686a077a41a103ac313e5d2f4, type: 2}
     Camera: {fileID: 687082334}

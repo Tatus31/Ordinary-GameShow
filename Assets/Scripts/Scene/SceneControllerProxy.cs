@@ -33,4 +33,12 @@ public static class SceneControllerProxy
         else
             Debug.LogWarning("No active SceneController instance found when calling LoadSceneWithPrewarm.");
     }
+
+    public static void CancelPrewarm()
+    {
+        if (SceneController.Instance)
+            SceneController.Instance.CancelPrewarm();
+        else
+            Debug.LogWarning("No active SceneController instance found when calling CancelPrewarm.");
+    }
 }

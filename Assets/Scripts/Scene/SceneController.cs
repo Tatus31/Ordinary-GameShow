@@ -29,6 +29,7 @@ public class SceneController : MonoBehaviour
     public static SceneController Instance;
 
     private AsyncOperation _loadSceneOperation;
+    private string _currentPrewarmedScene;
 
     public void Awake()
     {
@@ -44,7 +45,34 @@ public class SceneController : MonoBehaviour
         Instance = this;
         
         if(shouldPersist)
+        {
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+#if UNITY_EDITOR
+        Debug.Log($"OnSceneLoaded: {scene.name}, _loadSceneOperation is {(_loadSceneOperation == null ? "null" : "not null")}");
+#endif
+        
+        if (_loadSceneOperation != null && _loadSceneOperation.isDone)
+        {
+#if UNITY_EDITOR
+            Debug.Log($"Clearing _loadSceneOperation after loading {scene.name}");
+#endif
+            _loadSceneOperation = null;
+            _currentPrewarmedScene = null;
+        }
     }
 
     public void PrewarmScene(string sceneName)
@@ -52,14 +80,24 @@ public class SceneController : MonoBehaviour
         if (_loadSceneOperation != null)
         {
 #if UNITY_EDITOR
-            Debug.LogWarning("other scene is beeing prewarmed");
+            Debug.LogWarning($"Another scene is being prewarmed: {_currentPrewarmedScene}. Current request: {sceneName}");
 #endif
             return;
         }
 #if UNITY_EDITOR
-        Debug.Log("Prewarmed scene " + sceneName);
+        Debug.Log("Prewarming scene: " + sceneName);
 #endif
+        _currentPrewarmedScene = sceneName;
         StartCoroutine(PrewarmSceneCoroutine(sceneName));
+    }
+
+    public void CancelPrewarm()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Cancelling prewarm operation");
+#endif
+        _loadSceneOperation = null;
+        _currentPrewarmedScene = null;
     }
 
     public void LoadScene()
@@ -115,7 +153,7 @@ public class SceneController : MonoBehaviour
         if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
 #if UNITY_EDITOR
-            Debug.LogError($"Scene {sceneName} cannot be loaded " + "Check Build Settings or scene name spelling.");
+            Debug.LogError($"Scene {sceneName} cannot be loaded. Check Build Settings or scene name spelling.");
 #endif
             return;
         }
@@ -128,12 +166,22 @@ public class SceneController : MonoBehaviour
             return;
         }
 
+        if (_loadSceneOperation != null)
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning($"Clearing existing prewarm ({_currentPrewarmedScene}) to load {sceneName}");
+#endif
+            _loadSceneOperation = null;
+            _currentPrewarmedScene = null;
+        }
+
         StartCoroutine(LoadSceneWithPrewarmCoroutine(sceneName));
     }
 
 
     private IEnumerator LoadSceneWithPrewarmCoroutine(string sceneName)
     {
+        _currentPrewarmedScene = sceneName;
         _loadSceneOperation = SceneManager.LoadSceneAsync(sceneName);
         _loadSceneOperation.allowSceneActivation  = false;
 
@@ -152,7 +200,9 @@ public class SceneController : MonoBehaviour
         animator.SetBool("StartTransition", false);
         yield return new WaitForSeconds(transitionDuration);
         curtainObj.SetActive(false);
+        
         _loadSceneOperation = null;
+        _currentPrewarmedScene = null;
     }
 
     private IEnumerator LoadSceneWithTransitionCoroutine()
@@ -180,7 +230,9 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(transitionDuration);
         
         curtainObj.SetActive(false);
-        _loadSceneOperation = null; 
+        
+        _loadSceneOperation = null;
+        _currentPrewarmedScene = null;
     }
     
     private IEnumerator PrewarmSceneCoroutine(string sceneName)
@@ -195,6 +247,9 @@ public class SceneController : MonoBehaviour
             {
                 yield return null;
             }
+#if UNITY_EDITOR
+            Debug.Log($"Scene {sceneName} prewarmed and ready");
+#endif
         }
     }
 }
