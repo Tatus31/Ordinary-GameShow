@@ -5303,7 +5303,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5400,7 +5400,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5497,7 +5497,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5594,7 +5594,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5691,7 +5691,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5788,7 +5788,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5885,7 +5885,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -5982,7 +5982,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -6079,9 +6079,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
-    timeToNextDialogue: 1
+    timeToNextDialogue: 2
     OnVHSAudio:
       m_PersistentCalls:
         m_Calls:
@@ -6176,7 +6176,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ca3531051ccdf334dbb51ebee1f3961a, type: 2}
     - {fileID: 11400000, guid: e8046de4e44c1aa449ca99296d7c8d63, type: 2}
     Camera: {fileID: 6772472544797829712}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:

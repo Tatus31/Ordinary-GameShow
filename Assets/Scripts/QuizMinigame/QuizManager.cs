@@ -68,7 +68,9 @@ public class QuizManager : MonoBehaviour
     {
         DialogueBranchManager.Instance.SetBranch("Correct", isRightAnswer);
         DialogueBranchManager.Instance.SetBranch("Wrong", !isRightAnswer);
-
+        
+        IsAnsweringQuestions = false;
+        
         if (isRightAnswer)
         {
             PointManager.Instance.AddPoints(points);

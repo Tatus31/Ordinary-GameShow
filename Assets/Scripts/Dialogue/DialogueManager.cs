@@ -101,6 +101,13 @@ public class DialogueManager : MonoBehaviour
                       $"Index={_currentDialogueIndex}");
         }
 
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            Debug.Log($"[NameSelection.IsTypingName]: {NameSelection.IsTypingName}" +
+                      $"[QuizManager.IsAnsweringQuestions]: {QuizManager.IsAnsweringQuestions}" 
+                );
+        }
+
         if (IsDialogueBlocked)
             return;
         
