@@ -185,9 +185,6 @@ public class AudianceManager : MonoBehaviour
                 spriteRenderer.sprite = sprite;
             }
         }
-#if UNITY_EDITOR
-        Debug.Log($"changed: {_audianceSprites.Length + 1} to {sprite}");
-#endif
     }
 
     private void OnDestroy()

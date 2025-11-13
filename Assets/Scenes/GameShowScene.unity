@@ -11125,7 +11125,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: bc9eebdcd8e6c6c4bbaac3cba5b59150, type: 2}
     Camera: {fileID: 885115410}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: db9edf36a47d2bc4d897f7ddbb2748a5, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -11185,7 +11185,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: 6b45608fa6dc97d43ae6d1b44d3db3ac, type: 2}
     Camera: {fileID: 1641113190}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1
     OnVHSAudio:
@@ -11257,7 +11257,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: 7b9bc4bba76a3d04ea9c6bf39dff9d17, type: 2}
     Camera: {fileID: 968834974}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -11281,7 +11281,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: 27cf5b78944733a45b3cc6f8b727169d, type: 2}
     Camera: {fileID: 1641113190}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 1
     OnVHSAudio:
@@ -11305,7 +11305,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: 6120680573f0fa5499b30fe771a8782d, type: 2}
     Camera: {fileID: 687082334}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 0e2b5a5ed815c6c48a34e27187620e3d, type: 3}
     timeToNextDialogue: 1
     OnVHSAudio:
@@ -11365,7 +11365,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: 1a3a6d62457944040bbb62dde3d7564b, type: 2}
     Camera: {fileID: 666638841}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: 6b2140e2a7b15c545a82473f193e441d, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -11389,7 +11389,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: b783ff9065911d44a838be2667b9aaee, type: 2}
     Camera: {fileID: 3884887}
-    isForcedToNextDialogue: 0
+    isForcedToNextDialogue: 1
     Sprite: {fileID: 21300000, guid: 47597fbc87236204382f6ab6a3b711c8, type: 3}
     timeToNextDialogue: 2
     OnVHSAudio:
@@ -11585,7 +11585,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: d236ee539afd8f744abc43da836609eb, type: 2}
     Camera: {fileID: 563264840}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 1.5
     OnVHSAudio:
@@ -11609,7 +11609,7 @@ MonoBehaviour:
   - Dialogues:
     - {fileID: 11400000, guid: ecba38decfaaaf047b4241abd2f0430a, type: 2}
     Camera: {fileID: 522640746}
-    isForcedToNextDialogue: 1
+    isForcedToNextDialogue: 0
     Sprite: {fileID: 21300000, guid: d36ffa16aeaee8d41a74a506af99d308, type: 3}
     timeToNextDialogue: 1.5
     OnVHSAudio:
